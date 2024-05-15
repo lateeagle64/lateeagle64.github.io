@@ -4,9 +4,6 @@ body {
 
 h1 {
   font-size: 4.6rem;
-  background: -webkit-linear-gradient(#ffffff, #82acff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   font-family: "Comic Sans MS", sans-serif;
   text-shadow: 1px 1px 6px #111111;
 }
