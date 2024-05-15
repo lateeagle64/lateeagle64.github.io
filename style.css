@@ -1,9 +1,10 @@
 body {
-  background-color: rgb(102.172.255):
+  background-color: rgb(102.172.255);
 }
 
 h1 {
-  color: #ffffff:
-    font-family: "Comic Sans MS", sans-serif:
-    text-shadow: 2px 2px 7px #111111:
+  font-size: 2.6rem;
+  color: #ffffff;
+  font-family: "Comic Sans MS", sans-serif;
+  text-shadow: 2px 2px 7px #111111;
 }
