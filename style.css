@@ -19,3 +19,11 @@ h2 {
   font-family: "Comic Sans MS", sans-serif;
   text-shadow: 1px 1px 6px #111111;
 }
+
+button {
+  font-size: 2rem;
+  color: #ffffff;
+  margin: 0;
+  font-family: "Comic Sans MS", sans-serif;
+  text-shadow: 1px 1px 6px #111111;
+}
