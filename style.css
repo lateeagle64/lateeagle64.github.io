@@ -1,5 +1,7 @@
 body {
   background-color: #275bff;
+  background-image: url("dinosaur.png");
+  background-repeat: repeat;
 }
 
 h1 {
