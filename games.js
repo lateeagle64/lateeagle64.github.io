@@ -39,9 +39,10 @@
     {
       "name": "Paper.io 2",
       "url": "https://paperio-2.github.io/"
+    },
+    {
+      "name": "Minecraft 1.5.2",
+      "url": "https://eaglercraft.com/mc/1.5.2/"
     }
   ]
 }
-
-
-https://eaglercraft.com/mc/1.5.2/
