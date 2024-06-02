@@ -72,19 +72,25 @@
         fetch('games.js')
             .then(response => response.json())
             .then(data => {
-                // Update the version text
-                const versionText = document.getElementById('version-text');
-                const currentVersion = data.info.versions.find(version => version.current);
+                // Check if data.info and data.info.versions are defined
+                if (data.info && data.info.versions) {
+                    // Find the current version
+                    const currentVersion = data.info.versions.find(version => version.current);
 
-                if (currentVersion) {
-                    versionText.textContent = `[${currentVersion.name}]`;
+                    // Update the version text
+                    const versionText = document.getElementById('version-text');
+                    if (currentVersion) {
+                        versionText.textContent = `[${currentVersion.name}]`;
+                    } else {
+                        versionText.textContent = '[?.?.?]';
+                    }
                 } else {
-                    versionText.textContent = '[?.?.?]';
+                    console.error('info or versions is undefined in the JSON data.');
                 }
 
                 // Populate the links list
                 const linksList = document.getElementById('links-list');
-                allLinks = data.links;
+                allLinks = data.links || [];
                 allLinks.forEach(link => {
                     const listItem = document.createElement('li');
                     listItem.className = 'active';
