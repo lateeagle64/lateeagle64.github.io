@@ -80,6 +80,9 @@
             .then(data => {
                 const versionsContainer = document.getElementById('versions-container');
                 
+                // Sort versions alphabetically by name
+                data.info.versions.sort((a, b) => a.name.localeCompare(b.name));
+
                 data.info.versions.forEach(version => {
                     const versionDiv = document.createElement('div');
                     versionDiv.classList.add('version');
