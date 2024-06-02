@@ -30,12 +30,12 @@
     <h1 style="text-align: center;">lateeagle64</h1>
     <h2 style="text-align: center;">[0.1.0]</h2>
 
-    <h1>Links</h1>
+    <h1 style="text-align: center;">games</h1>
     <ul class="itemlist" id="links-list"></ul>
 
     <script>
         // Fetch the JSON file
-        fetch('links.json')
+        fetch('games.json')
             .then(response => response.json())
             .then(data => {
                 const linksList = document.getElementById('links-list');
