@@ -24,6 +24,18 @@
             text-shadow: 1px 1px 6px #111111;
             text-decoration: underline;
         }
+        .version {
+            margin-top: 30px;
+        }
+        .version h2 {
+            text-align: center;
+        }
+        .changes-list {
+            padding-left: 50px;
+        }
+        .changes-list li {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -32,5 +44,38 @@
     <div class="back-link">
         <a href="https://lateeagle64.github.io" target="_blank">back</a>
     </div>
+
+    <div id="versions-container"></div>
+
+    <script>
+        fetch('changelog.json')
+            .then(response => response.json())
+            .then(data => {
+                const versionsContainer = document.getElementById('versions-container');
+                
+                data.versions.forEach(version => {
+                    const versionDiv = document.createElement('div');
+                    versionDiv.classList.add('version');
+
+                    const versionHeading = document.createElement('h2');
+                    versionHeading.textContent = `Version ${version.name}`;
+
+                    const changesList = document.createElement('ul');
+                    changesList.classList.add('changes-list');
+
+                    version.changes.forEach(change => {
+                        const changeItem = document.createElement('li');
+                        changeItem.textContent = change;
+                        changesList.appendChild(changeItem);
+                    });
+
+                    versionDiv.appendChild(versionHeading);
+                    versionDiv.appendChild(changesList);
+
+                    versionsContainer.appendChild(versionDiv);
+                });
+            })
+            .catch(error => console.error('Error loading the JSON file:', error));
+    </script>
 </body>
 </html>
