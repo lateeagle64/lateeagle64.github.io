@@ -7,8 +7,8 @@
         "current": true,
         
         "changes": [
-          "-created website",
-          "-added tons of games"
+          "created website",
+          "added tons of games"
         ]
       }
     ]
