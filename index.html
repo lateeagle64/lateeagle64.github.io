@@ -67,7 +67,7 @@
         let allLinks = [];
 
         fetch('games.js')
-            .then(response => response.js())
+            .then(response => response.json())
             .then(data => {
                 const linksList = document.getElementById('links-list');
                 allLinks = data.links;
