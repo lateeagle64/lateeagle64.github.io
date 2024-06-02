@@ -38,5 +38,3 @@
     },
   ]
 }
-
-https://slope3d.io/
