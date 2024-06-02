@@ -35,6 +35,13 @@
     {
       "name": "Paper.io 2",
       "url": "https://paperio-2.github.io/"
+    },
+    {
+      "name": "Paper.io 2",
+      "url": "https://paperio-2.github.io/"
     }
   ]
 }
+
+
+https://eaglercraft.com/mc/1.5.2/
