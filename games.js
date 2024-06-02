@@ -1,4 +1,19 @@
 {
+  "info": {
+    "versions": [
+      {
+        "name": "0.1.0",
+        "date": "?/?/2024",
+        "current": true,
+        
+        "changes": [
+          "-created website",
+          "-added tons of games"
+        ]
+      }
+    ]
+  },
+  
   "links": [
     {
       "name": "Chrome Dino",
