@@ -34,7 +34,7 @@
     <ul class="itemlist" id="links-list"></ul>
 
     <script>
-        fetch('links.json')
+        fetch('games.json')
             .then(response => response.json())
             .then(data => {
                 const linksList = document.getElementById('links-list');
