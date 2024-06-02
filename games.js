@@ -51,6 +51,10 @@
       "name": "Paper.io 2",
       "url": "https://paperio-2.github.io/"
     },
+     {
+      "name": "Double Dragon II",
+      "url": "https://www.retrogames.cz/play_263-NES.php"
+    },
     {
       "name": "Minecraft 1.5.2",
       "url": "https://eaglercraft.com/mc/1.5.2/"
