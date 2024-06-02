@@ -34,8 +34,7 @@
     <ul class="itemlist" id="links-list"></ul>
 
     <script>
-        // Fetch the JSON file
-        fetch('games.json')
+        fetch('links.json')
             .then(response => response.json())
             .then(data => {
                 const linksList = document.getElementById('links-list');
@@ -45,7 +44,7 @@
                     const anchor = document.createElement('a');
                     anchor.href = link.url;
                     anchor.target = '_blank';
-                    anchor.textContent = link.name;
+                    anchor.textContent = `${link.name} (${link.url})`;
                     listItem.appendChild(anchor);
                     linksList.appendChild(listItem);
                 });
