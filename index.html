@@ -106,6 +106,8 @@
 
                 const linksList = document.getElementById('links-list');
                 allLinks = data.links || [];
+                allLinks.sort((a, b) => a.name.localeCompare(b.name));
+                
                 allLinks.forEach(link => {
                     const listItem = document.createElement('li');
                     listItem.className = 'active';
