@@ -20,6 +20,14 @@ h2 {
   text-shadow: 1px 1px 6px #111111;
 }
 
+p {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 0;
+  font-family: "Comic Sans MS", sans-serif;
+  text-shadow: 1px 1px 6px #111111;
+}
+
 h3 {
   font-size: 3rem;
   color: #ffffff;
