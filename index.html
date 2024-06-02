@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css">
@@ -51,13 +51,13 @@
             text-decoration: underline;
         }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <h1 style="text-align: center;">lateeagle64</h1>
-    <h2 style="text-align: center;">[0.1.0]</h2>
+    <h2 id="version-text" style="text-align: center;">[?.?.?]</h2>
 
     <p style="text-align: center;">email me for suggestions: lateeagle64@gmail.com</p>
-    
+
     <h3 style="text-align: center;">games</h3>
 
     <div class="search-bar">
@@ -72,6 +72,17 @@
         fetch('games.js')
             .then(response => response.json())
             .then(data => {
+                // Update the version text
+                const versionText = document.getElementById('version-text');
+                const currentVersion = data.info.versions.find(version => version.current);
+
+                if (currentVersion) {
+                    versionText.textContent = `[${currentVersion.name}]`;
+                } else {
+                    versionText.textContent = '[?.?.?]';
+                }
+
+                // Populate the links list
                 const linksList = document.getElementById('links-list');
                 allLinks = data.links;
                 allLinks.forEach(link => {
@@ -105,4 +116,5 @@
                 });
         });
     </script>
+</body>
 </html>
