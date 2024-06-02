@@ -56,6 +56,14 @@
       "url": "https://www.retrogames.cz/play_263-NES.php"
     },
     {
+      "name": "Tetris - NES",
+      "url": "https://www.retrogames.cz/play_1030-NES.php"
+    },
+    {
+      "name": "Tetris",
+      "url": "https://tetris.com/play-tetris"
+    },
+    {
       "name": "Minecraft 1.5.2",
       "url": "https://eaglercraft.com/mc/1.5.2/"
     }
