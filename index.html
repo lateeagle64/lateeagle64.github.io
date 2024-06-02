@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css">
-    
     <title>lateeagle64</title>
-    
     <style>
         body {
             font-family: Comic Sans MS, sans-serif;
             margin: 0;
             padding: 20px;
+        }
+        .search-bar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
         }
         .itemlist {
             list-style-type: none;
@@ -42,20 +48,26 @@
         }
     </style>
   </head>
-  
   <body>
     <h1 style="text-align: center;">lateeagle64</h1>
     <h2 style="text-align: center;">[0.1.0]</h2>
+    <h3 style="text-align: center;">games</h3>
 
-    <h3 style="text-align: center;">games</h1>
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search for games...">
+    </div>
+
     <ul class="itemlist" id="links-list"></ul>
 
     <script>
+        let allLinks = [];
+
         fetch('games.json')
             .then(response => response.json())
             .then(data => {
                 const linksList = document.getElementById('links-list');
-                data.links.forEach(link => {
+                allLinks = data.links;
+                allLinks.forEach(link => {
                     const listItem = document.createElement('li');
                     listItem.className = 'active';
                     const anchor = document.createElement('a');
@@ -67,6 +79,24 @@
                 });
             })
             .catch(error => console.error('Error loading the JSON file:', error));
+
+        document.getElementById('search-input').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const linksList = document.getElementById('links-list');
+            linksList.innerHTML = '';
+            allLinks
+                .filter(link => link.name.toLowerCase().includes(searchTerm))
+                .forEach(link => {
+                    const listItem = document.createElement('li');
+                    listItem.className = 'active';
+                    const anchor = document.createElement('a');
+                    anchor.href = link.url;
+                    anchor.target = '_blank';
+                    anchor.textContent = `${link.name} (${link.url})`;
+                    listItem.appendChild(anchor);
+                    linksList.appendChild(listItem);
+                });
+        });
     </script>
   </body>
 </html>
