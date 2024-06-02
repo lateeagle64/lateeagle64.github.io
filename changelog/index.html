@@ -83,7 +83,7 @@
                     changesList.classList.add('changes-list');
 
                     version.changes.forEach(change => {
-                        const changeItem = document.createElement('li');
+                        const changeItem = document.createElement('p');
                         changeItem.textContent = change;
                         changesList.appendChild(changeItem);
                     });
