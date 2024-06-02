@@ -48,12 +48,12 @@
     <div id="versions-container"></div>
 
     <script>
-        fetch('changelog.json')
+        fetch('games.js')
             .then(response => response.json())
             .then(data => {
                 const versionsContainer = document.getElementById('versions-container');
                 
-                data.versions.forEach(version => {
+                data.info.versions.forEach(version => {
                     const versionDiv = document.createElement('div');
                     versionDiv.classList.add('version');
 
