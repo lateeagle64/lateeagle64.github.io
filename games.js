@@ -35,6 +35,6 @@
     {
       "name": "Paper.io 2",
       "url": "https://paperio-2.github.io/"
-    },
+    }
   ]
 }
