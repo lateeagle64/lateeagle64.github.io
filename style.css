@@ -19,3 +19,11 @@ h2 {
   font-family: "Comic Sans MS", sans-serif;
   text-shadow: 1px 1px 6px #111111;
 }
+
+h3 {
+  font-size: 3rem;
+  color: #ffffff;
+  margin: 1;
+  font-family: "Comic Sans MS", sans-serif;
+  text-shadow: 1px 1px 6px #111111;
+}
