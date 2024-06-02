@@ -2,16 +2,55 @@
 
 <html>
   <head>
-    <title>lateeagle64</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css">
+    
+    <title>lateeagle64</title>
+    
+    <style>
+        .itemlist {
+            list-style-type: none;
+            padding: 0;
+        }
+        .itemlist li {
+            margin: 5px 0;
+        }
+        .itemlist li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .itemlist li a:hover {
+            text-decoration: underline;
+        }
+    </style>
   </head>
   
   <body>
     <h1 style="text-align: center;">lateeagle64</h1>
     <h2 style="text-align: center;">[0.1.0]</h2>
 
-    <div class="itemlist">
-      
-    </div>
+    <h1>Links</h1>
+    <ul class="itemlist" id="links-list"></ul>
+
+    <script>
+        // Fetch the JSON file
+        fetch('links.json')
+            .then(response => response.json())
+            .then(data => {
+                const linksList = document.getElementById('links-list');
+                data.links.forEach(link => {
+                    const listItem = document.createElement('li');
+                    listItem.className = 'active';
+                    const anchor = document.createElement('a');
+                    anchor.href = link.url;
+                    anchor.target = '_blank';
+                    anchor.textContent = link.name;
+                    listItem.appendChild(anchor);
+                    linksList.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Error loading the JSON file:', error));
+    </script>
   </body>
 </html>
