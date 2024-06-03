@@ -75,6 +75,62 @@
       "url": "https://tetris.com/play-tetris"
     },
     {
+      "name": "Temple of Boom",
+      "url": "https://poki.com/en/g/temple-of-boom"
+    },
+    {
+      "name": "Temple Run 2",
+      "url": "https://poki.com/en/g/temple-run-2"
+    },
+    {
+      "name": "Subway Surfers",
+      "url": "https://poki.com/en/g/subway-surfers"
+    },
+    {
+      "name": "Monkey Mart",
+      "url": "https://poki.com/en/g/monkey-mart"
+    },
+    {
+      "name": "Drive Mad",
+      "url": "https://poki.com/en/g/drive-mad"
+    },
+    {
+      "name": "Tag",
+      "url": "https://poki.com/en/g/tag"
+    },
+    {
+      "name": "Stickman Fight Ragdoll",
+      "url": "https://poki.com/en/g/stickman-fight-ragdoll"
+    },
+    {
+      "name": "Iron Snout",
+      "url": "https://poki.com/en/g/iron-snout"
+    },
+    {
+      "name": "2048",
+      "url": "https://poki.com/en/g/2048"
+    },
+    {
+      "name": "Level Devil",
+      "url": "https://poki.com/en/g/level-devil"
+    },
+    {
+      "name": "Stickman Climb 2",
+      "url": "https://poki.com/en/g/stickman-climb-2"
+    },
+    {
+      "name": "Temple Run 2: Frozen Festival",
+      "url": "https://poki.com/en/g/temple-run-2-frozen-festival"
+    },
+    {
+      "name": "Moto X3M",
+      "url": "https://poki.com/en/g/moto-x3m"
+    },
+    {
+      "name": "Idle Breakout",
+      "url": "https://poki.com/en/g/idle-breakout"
+    },
+    {
       "name": "Minecraft 1.5.2",
       "url": "https://eaglercraft.com/mc/1.5.2/"
     }
