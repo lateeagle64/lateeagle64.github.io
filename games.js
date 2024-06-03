@@ -134,6 +134,22 @@
       "url": "https://fridaynight-funkin.github.io/"
     },
     {
+      "name": "FNAF 1",
+      "url": "https://fnafgame.io/fnaf"
+    },
+    {
+      "name": "FNAF 2",
+      "url": "https://fnafgame.io/fnaf-2"
+    },
+    {
+      "name": "FNAF 3",
+      "url": "https://fnafgame.io/fnaf-3"
+    },
+    {
+      "name": "FNAF 4",
+      "url": "https://fnafgame.io/fnaf-4"
+    },
+    {
       "name": "Minecraft 1.5.2",
       "url": "https://eaglercraft.com/mc/1.5.2/"
     }
