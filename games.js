@@ -120,6 +120,14 @@
       "url": "https://poki.com/en/g/idle-breakout"
     },
     {
+      "name": "Bitlife",
+      "url": "https://sites.google.com/site/classroom6x/bitlife-simulator"
+    },
+    {
+      "name": "Tiny Fishing",
+      "url": "https://poki.com/en/g/tiny-fishing"
+    },
+    {
       "name": "Minecraft 1.5.2",
       "url": "https://eaglercraft.com/mc/1.5.2/"
     }
