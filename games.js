@@ -5,15 +5,13 @@
         "name": "0.1.0",
         "date": "?/?/2024",
         "current": true,
-        
         "changes": [
           "-created website",
           "-added tons of games"
         ]
-      },
+      }
     ]
   },
-  
   "links": [
     {
       "name": "Chrome Dino",
@@ -51,7 +49,7 @@
       "name": "Paper.io 2",
       "url": "https://paperio-2.github.io/"
     },
-     {
+    {
       "name": "Double Dragon II",
       "url": "https://www.retrogames.cz/play_263-NES.php"
     },
