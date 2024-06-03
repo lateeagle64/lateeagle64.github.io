@@ -11,17 +11,6 @@
           "-added tons of games"
         ]
       },
-
-      {
-        "name": "0.1.1",
-        "date": "?/?/2024",
-        "current": false,
-        
-        "changes": [
-          "-test",
-          "-haha"
-        ]
-      }
     ]
   },
   
