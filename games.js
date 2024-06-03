@@ -130,6 +130,10 @@
       "url": "https://poki.com/en/g/fleeing-the-complex"
     },
     {
+      "name": "Friday Night Funkin'",
+      "url": "https://fridaynight-funkin.github.io/"
+    },
+    {
       "name": "Minecraft 1.5.2",
       "url": "https://eaglercraft.com/mc/1.5.2/"
     }
