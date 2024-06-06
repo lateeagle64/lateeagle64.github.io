@@ -63,7 +63,7 @@
     },
     {
       "name": "Temple of Boom",
-      "url": "https://poki.com/en/g/temple-of-boom"
+      "url": "https://lateeagle64.github.io/play/temple-of-boom"
     },
     {
       "name": "Temple Run 2",
