@@ -63,7 +63,7 @@
     },
     {
       "name": "Temple of Boom",
-      "url": "https://lateeagle64.github.io/play/temple-of-boom"
+      "url": "https://ubg77.github.io/fix/temple-of-boom/"
     },
     {
       "name": "Temple Run 2",
