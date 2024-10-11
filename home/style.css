@@ -3,11 +3,11 @@
     src: url("https://lateeagle64.github.io/fonts/Montserrat-Medium.ttf");
 }
 
-.title img {
-    width: 100px;
+.title {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 100px;
 }
 
 .full-wh {
