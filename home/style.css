@@ -3,13 +3,6 @@
            src: url("https://lateeagle64.github.io/fonts/Montserrat-Medium.ttf");
         }
 
-        h1 {
-          text-align: center;
-          color: #ffffff;
-          font-family: "Montserrat-Medium;
-          font-weight: 400;
-        }
-
         .full-wh {
             position: absolute;
             top: 0px;
