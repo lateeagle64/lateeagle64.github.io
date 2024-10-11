@@ -1,3 +1,8 @@
+        @font-face {
+           font-family: Montserrat-Medium;
+           src: url("https://lateeagle64.github.io/fonts/Montserrat-Medium.ttf");
+        }
+
         h1 {
           text-align: center;
           color: #ffffff;
