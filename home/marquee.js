@@ -6,6 +6,6 @@ const marquee = [
 
 // Select a random message from the array
 const randomMessage = marquee[Math.floor(Math.random() * marquee.length)];
-const repeatedMessage = Array(10).fill(randomMessage).join(' ');
+const repeatedMessage = Array(10).fill(randomMessage).join(' - ');
 
 document.getElementById("marquee-text").textContent = repeatedMessage;
