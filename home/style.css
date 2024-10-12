@@ -2,3 +2,10 @@
     font-family: Montserrat-Medium;
     src: url("https://lateeagle64.github.io/fonts/Montserrat-Medium.ttf");
 }
+
+.title {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
