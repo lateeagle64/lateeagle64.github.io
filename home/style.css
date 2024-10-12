@@ -3,6 +3,13 @@
     src: url("https://lateeagle64.github.io/fonts/Montserrat-Medium.ttf");
 }
 
+.marquee {
+  width: 300px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background: #ccc;
+}
+
 .title {
   display: block;
   margin-left: auto;
