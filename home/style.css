@@ -10,6 +10,7 @@ body {
   font-family: Montserrat-Medium;
   font-size: 30px;
   font-weight: bold;
+  background: linear-gradient(90deg, #100019 0%, #000000 100%)
 }
 
 .runCycle {
