@@ -12,6 +12,12 @@ body {
   font-weight: bold;
 }
 
+.runCylce {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .title {
   display: block;
   margin-left: auto;
