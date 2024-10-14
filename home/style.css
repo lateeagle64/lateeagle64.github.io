@@ -28,7 +28,7 @@ ul {
 h2,
 h3,
 a {
-	color: #000000;
+	color: #ffffff;
 }
 
 a {
@@ -52,16 +52,12 @@ a {
 }
 
 .main-nav a {
-	color: #000000;
-	font-size: 1em;
+	color: #ffffff;
+	font-size: 0.9em;
 }
 
 .main-nav a:hover {
 	color: #858585;
-}
-
-.header {
-  background-color: #ffffffc2;
 }
 
 .runCycle {
