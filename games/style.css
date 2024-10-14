@@ -60,13 +60,6 @@ a {
   background-color: #ffffff00;
 }
 
-.track {
-  position: absolute;
-  white-space: nowrap;
-  will-change: transform;
-  animation: marquee 24s linear infinite;
-}
-
 @media (min-width: 769px) {
 	.header,
 	.main-nav {
