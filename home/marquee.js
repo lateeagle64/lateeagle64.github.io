@@ -3,6 +3,7 @@ const marquee = [
     "made by lateeagle64 on github",
     "thanks for using my website!!",
     "share this website with others",
+    "free proxies and apps!"
 ];
 
 const randomMessage = marquee[Math.floor(Math.random() * marquee.length)];
