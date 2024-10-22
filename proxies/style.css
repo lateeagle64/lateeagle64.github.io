@@ -78,6 +78,7 @@ a {
     justify-content: center;
     flex-wrap: wrap;
     padding: 20px;
+	margin-top: 30px;
 }
 
 .proxy-image {
