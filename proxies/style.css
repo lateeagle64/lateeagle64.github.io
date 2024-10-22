@@ -63,13 +63,6 @@ a {
   margin-top: -100px;
 }
 
-.container2 {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 20px;
-}
-
 .proxy-image {
     margin: 15px;
     cursor: pointer;
