@@ -86,23 +86,6 @@ a {
     cursor: pointer;
     position: relative;
     display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-.proxy-image::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0);
-    transition: background-color 0.4s ease;
-    z-index: 1;
-}
-
-.proxy-image:hover::after {
-    background-color: rgb(0 0 0 / 50%);
 }
 
 .overlay {
@@ -111,7 +94,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgb(0, 0, 0, 0.8);
+    background: rgb(0 0 0 / 35%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,11 +108,11 @@ a {
 }
 
 .frame {
-    background: #222;
+    background: #00000052;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
-    width: 300px;
+    width: 800px;
 }
 
 .frame ul {
@@ -146,8 +129,10 @@ a {
 }
 
 .frame button {
-    background: #555;
-    color: #ffffff;
+    background: #ffffff;
+    color: #000000;
+	width: 25%;
+	border-radius: 10px;
     padding: 5px 10px;
     border: none;
     cursor: pointer;
@@ -155,7 +140,7 @@ a {
 }
 
 .frame button:hover {
-    background: #777;
+    background: #e0e0e0;
 }
 
 @media (min-width: 769px) {
