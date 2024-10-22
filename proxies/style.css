@@ -82,6 +82,7 @@ a {
 }
 
 .proxy-image {
+    width: 50%;
     margin: 15px;
     cursor: pointer;
     position: relative;
