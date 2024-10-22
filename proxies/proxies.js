@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const proxies = [
         {
             name: "Interstellar",
-            image: "https://lateeagle64.github.io/images/interstellar.png",
+            image: "https://lateeagle64.github.io/images/interstellarBG.png",
             urls: [
                 "https://welcome.chillat.net/",
                 "https://social.valah.net/",
