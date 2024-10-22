@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const img = document.createElement("img");
         img.src = proxy.image;
         img.alt = proxy.name;
+        img.style.margin = "0 auto";
         img.className = "proxy-image";
         img.dataset.name = proxy.name;
         img.dataset.urls = JSON.stringify(proxy.urls);
