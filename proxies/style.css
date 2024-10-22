@@ -18,35 +18,45 @@ body {
 }
 
 ul {
-    margin: 35px;
-    padding: 0;
-    list-style: none;
+  margin: 35px;
+  padding: 0;
+  list-style: none;
+}
+
+
+h2,
+h3,
+a {
+	color: #ffffff;
 }
 
 a {
-    color: #ffffff;
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .logo {
-    margin: 0px;
+	margin: 0px;
+}
+
+.logo a,
+.main-nav a {
+	padding: 10px 10px;
+	text-align: center;
+	display: block;
 }
 
 .main-nav a {
-    padding: 10px 10px;
-    text-align: center;
-    display: block;
-    color: #ffffff;
-    font-size: 0.95em;
+	color: #ffffff;
+	font-size: 0.95em;
 }
 
 .main-nav a:hover {
-    color: #d0d0d0;
+	color: #d0d0d0;
 }
 
 .header {
-    background-color: #ffffff00;
-    text-align: center;
+  background-color: #ffffff00;
+  margin-top: -50px;
 }
 
 .runCycle {
