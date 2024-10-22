@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const proxyName = document.getElementById("proxy-name");
     const closeBtn = document.getElementById("close");
 
-    // Function to create proxy images dynamically
     proxies.forEach(proxy => {
         const img = document.createElement("img");
         img.src = proxy.image;
@@ -27,18 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
         img.className = "proxy-image";
         img.dataset.name = proxy.name;
         img.dataset.urls = JSON.stringify(proxy.urls);
-        
-        // Attach click event to open overlay
+
         img.addEventListener("click", () => showOverlay(proxy.name, proxy.urls));
         proxyContainer.appendChild(img);
     });
 
-    // Function to show overlay
     const showOverlay = (name, urls) => {
         overlay.classList.remove("hidden");
         overlay.classList.add("visible");
 
-        // Update the overlay with the selected proxy name and links
         proxyName.textContent = name;
         proxyLinks.innerHTML = "";
         urls.forEach(url => {
@@ -52,12 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // Function to hide overlay
     const hideOverlay = () => {
         overlay.classList.remove("visible");
         overlay.classList.add("hidden");
     };
 
-    // Attach event to close button
     closeBtn.addEventListener("click", hideOverlay);
 });
