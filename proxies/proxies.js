@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
             urls: [
                 "https://welcome.chillat.net/",
                 "https://social.valah.net/",
-                "https://services.nexus-computing.com/"
             ]
         }
     ];
