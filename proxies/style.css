@@ -1,4 +1,8 @@
-/* General Styles */
+@font-face {
+    font-family: Montserrat-Medium;
+    src: url("https://lateeagle64.github.io/fonts/Montserrat-Medium.ttf");
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -24,7 +28,6 @@ a {
     text-decoration: none;
 }
 
-/* Header Styles */
 .logo {
     margin: 0px;
 }
@@ -46,7 +49,20 @@ a {
     text-align: center;
 }
 
-/* Container Styles */
+.runCycle {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -50px;
+}
+
+.title {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -100px;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -62,7 +78,6 @@ a {
     transition: transform 0.3s ease;
 }
 
-/* Hover Effect */
 .proxy-image::after {
     content: "";
     position: absolute;
@@ -76,17 +91,16 @@ a {
 }
 
 .proxy-image:hover::after {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(0 0 0 / 50%);
 }
 
-/* Overlay Styles */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgb(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -131,4 +145,34 @@ a {
 
 .frame button:hover {
     background: #777;
+}
+
+@media (min-width: 769px) {
+	.header,
+	.main-nav {
+		display: flex;
+	}
+	.header {
+		flex-direction: column;
+		align-items: center;
+    	.header{
+		width: 80%;
+		margin: 0 auto;
+		max-width: 1150px;
+	}
+	}
+
+}
+
+@media (min-width: 1025px) {
+	.header {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
