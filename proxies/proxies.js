@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             name: "Interstellar",
             image: "https://lateeagle64.github.io/images/interstellarBG.png",
-            selectImage: "https://lateeagle64.github.io/images/interstellarBG_select.png",
+            selectImage: "https://lateeagle64.github.io/images/interstellarBGSelect.png",
             urls: [
                 "https://welcome.chillat.net/",
                 "https://social.valah.net/",
