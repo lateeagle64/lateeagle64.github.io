@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             name: "Interstellar",
             image: "https://lateeagle64.github.io/images/interstellarBG.png",
-            selectImage: "https://lateeagle64.github.io/images/interstellarBG.png",
+            selectImage: "https://lateeagle64.github.io/images/interstellarBG_select.png",
             urls: [
                 "https://welcome.chillat.net/",
                 "https://social.valah.net/",
@@ -26,6 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
         img.className = "proxy-image";
         img.dataset.name = proxy.name;
         img.dataset.urls = JSON.stringify(proxy.urls);
+
+        img.addEventListener("mouseenter", () => {
+            img.src = proxy.selectImage;
+        });
+
+        img.addEventListener("mouseleave", () => {
+            img.src = proxy.image;
+        });
 
         img.addEventListener("click", () => showOverlay(proxy.name, proxy.urls));
         proxyContainer.appendChild(img);
