@@ -9,6 +9,7 @@ const marquee = [
     "work in progress!!",
     "this website is E for everyone!!",
     "proxies get blocked regularly, wait until they get fixed!!",
+    "go to https://lateeagle64.github.io/minecraft/ for a secret minecraft link!!",
 ];
 
 const randomMessage = marquee[Math.floor(Math.random() * marquee.length)];
