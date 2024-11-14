@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
             image: "https://lateeagle64.github.io/images/interstellarBG.png",
             selectImage: "https://lateeagle64.github.io/images/interstellarBGSelected.png",
             urls: [
-                "https://social.valah.net/",
+                "https://interstellar-production-9abe.up.railway.app/",
             ]
         }
     ];
