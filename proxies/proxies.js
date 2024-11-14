@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
             urls: [
                 "https://interstellar-production-9abe.up.railway.app/",
             ],
-
+        },
+        {
             name: "Rammerhead",
             image: "https://lateeagle64.github.io/images/rammerheadBG.png",
             selectImage: "https://lateeagle64.github.io/images/rammerheadBGSelected.png",
