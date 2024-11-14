@@ -6,7 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
             selectImage: "https://lateeagle64.github.io/images/interstellarBGSelected.png",
             urls: [
                 "https://interstellar-production-9abe.up.railway.app/",
-            ]
+            ],
+
+            name: "Rammerhead",
+            image: "https://lateeagle64.github.io/images/interstellarBG.png",
+            selectImage: "https://lateeagle64.github.io/images/interstellarBGSelected.png",
+            urls: [
+                "https://savvasrealize.triplewipe.ru/",
+                "https://savvasrealize.cbu.net/",
+            ],
         }
     ];
 
