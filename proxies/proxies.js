@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
 
             name: "Rammerhead",
-            image: "https://lateeagle64.github.io/images/interstellarBG.png",
-            selectImage: "https://lateeagle64.github.io/images/interstellarBGSelected.png",
+            image: "https://lateeagle64.github.io/images/rammerheadBG.png",
+            selectImage: "https://lateeagle64.github.io/images/rammerheadBGSelected.png",
             urls: [
                 "https://savvasrealize.triplewipe.ru/",
                 "https://savvasrealize.cbu.net/",
