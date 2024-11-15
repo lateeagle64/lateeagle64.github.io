@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
             selectImage: "https://lateeagle64.github.io/images/rammerheadBGSelected.png",
             urls: [
                 "https://savvasrealize.triplewipe.ru/",
-                "https://savvasrealize.cbu.net/",
             ],
         }
     ];
