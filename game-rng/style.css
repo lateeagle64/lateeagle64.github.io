@@ -1,1 +1,19 @@
+.roll_btn {
+  padding: 10px 50px;
+  border: none;
+  font-size: 40px;
+  color: #ffffff;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: 0.4s;
+  transition-property: box-shadow, font-size;
+  background: rgb(77, 227, 85);
+  box-shadow: 0 0 25px rgb(77, 227, 85);
+}
 
+.roll_btn:hover {
+  box-shadow: 0 0 25px rgb(77, 227, 85),
+              0 0 50px rgb(77, 227, 85);
+
+  font-size: 50px;
+}
