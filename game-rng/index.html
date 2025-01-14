@@ -14,9 +14,10 @@
       .then(response => response.json())
       .then(data => {
         const games = data.games;
-        
+
         function selectRandomGame(games) {
           const pickRandom = (array) => array[Math.floor(Math.random() * array.length)];
+          
           const platforms = Object.keys(games);
           const selectedPlatform = pickRandom(platforms);
 
@@ -25,22 +26,19 @@
 
           for (let i = 0; i < platformGames.length; i++) {
             const currentGames = platformGames.filter(game => game.chance === platformGames[i].chance);
-
             if (Math.random() < currentGames[0].chance) {
               return pickRandom(currentGames);
             }
-
             i += currentGames.length - 1;
           }
 
-          const lastChanceGames = platformGames.filter(
-            game => game.chance === platformGames[platformGames.length - 1].chance
-          );
+          const lastChanceGames = platformGames.filter(game => game.chance === platformGames[platformGames.length - 1].chance);
           return pickRandom(lastChanceGames);
         }
 
         document.querySelector('.roll_btn').addEventListener('click', () => {
           const selectedGame = selectRandomGame(games);
+
           console.log("Selected Game:");
           console.log("Name:", selectedGame.name);
           console.log("Image:", selectedGame.image);
