@@ -22,17 +22,28 @@
           const selectedPlatform = pickRandom(platforms);
 
           const platformGames = Object.values(games[selectedPlatform]);
-          platformGames.sort((a, b) => b.chance - a.chance);
+          platformGames.sort((a, b) => 
+            parseFloat(b.chance.replace('%', '')) - parseFloat(a.chance.replace('%', ''))
+          );
 
           for (let i = 0; i < platformGames.length; i++) {
-            const currentGames = platformGames.filter(game => game.chance === platformGames[i].chance);
-            if (Math.random() < currentGames[0].chance) {
+            const currentGames = platformGames.filter(game => 
+              parseFloat(game.chance.replace('%', '')) === 
+              parseFloat(platformGames[i].chance.replace('%', ''))
+            );
+
+            const chanceValue = parseFloat(currentGames[0].chance.replace('%', '')) / 100;
+            if (Math.random() < chanceValue) {
               return pickRandom(currentGames);
             }
             i += currentGames.length - 1;
           }
 
-          const lastChanceGames = platformGames.filter(game => game.chance === platformGames[platformGames.length - 1].chance);
+          const lastChanceGames = platformGames.filter(game => 
+            parseFloat(game.chance.replace('%', '')) === 
+            parseFloat(platformGames[platformGames.length - 1].chance.replace('%', ''))
+          );
+
           return pickRandom(lastChanceGames);
         }
 
