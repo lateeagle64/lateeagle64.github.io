@@ -17,36 +17,37 @@
 
         function selectRandomGame(games) {
           const pickRandom = (array) => array[Math.floor(Math.random() * array.length)];
-          
+
+          // Select a random platform
           const platforms = Object.keys(games);
           const selectedPlatform = pickRandom(platforms);
 
+          // Get all games for the selected platform and sort by chance (ascending)
           const platformGames = Object.values(games[selectedPlatform]);
           platformGames.sort((a, b) => 
-            parseFloat(b.chance.replace('%', '')) - parseFloat(a.chance.replace('%', ''))
+            parseFloat(a.chance.replace('%', '')) - parseFloat(b.chance.replace('%', ''))
           );
 
-          for (let i = 0; i < platformGames.length; i++) {
-            const currentGames = platformGames.filter(game => 
-              parseFloat(game.chance.replace('%', '')) === 
-              parseFloat(platformGames[i].chance.replace('%', ''))
-            );
+          // Iterate through games starting from the lowest chance
+          for (const game of platformGames) {
+            const chanceValue = parseFloat(game.chance.replace('%', '')) / 100;
 
-            const chanceValue = parseFloat(currentGames[0].chance.replace('%', '')) / 100;
+            // Determine if the game is selected based on its chance
             if (Math.random() < chanceValue) {
-              return pickRandom(currentGames);
+              return game;
             }
-            i += currentGames.length - 1;
           }
 
-          const lastChanceGames = platformGames.filter(game => 
-            parseFloat(game.chance.replace('%', '')) === 
-            parseFloat(platformGames[platformGames.length - 1].chance.replace('%', ''))
+          // If no game is selected, pick from the highest chance games
+          const highestChance = parseFloat(platformGames[platformGames.length - 1].chance.replace('%', ''));
+          const highestChanceGames = platformGames.filter(game => 
+            parseFloat(game.chance.replace('%', '')) === highestChance
           );
 
-          return pickRandom(lastChanceGames);
+          return pickRandom(highestChanceGames);
         }
 
+        // Event listener for button click
         document.querySelector('.roll_btn').addEventListener('click', () => {
           const selectedGame = selectRandomGame(games);
 
