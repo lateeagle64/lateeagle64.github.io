@@ -141,5 +141,49 @@
         "chanceString": "1 in 2",
       },
     },
+
+    "nintendo": {
+      "Minecraft": {
+        "name": "Minecraft - Nintendo Switch",
+        "chance": 0.015625,
+        "chanceString": "1 in 64",
+      },
+
+      "Smash_Bros_Ultimate": {
+        "name": "Super Smash Bros: Ultimate - Nintendo Switch",
+        "chance": 0.03125,
+        "chanceString": "1 in 32",
+      },
+
+      "Animal_Crossing": {
+        "name": "Animal Crossing: New Horizon - Nintendo Switch",
+        "chance": 0.04166666666,
+        "chanceString": "1 in 24",
+      },
+
+      "Luigi_Mansion_3": {
+        "name": "Luigi's Mansion 3 - Nintendo Switch",
+        "chance": 0.0625,
+        "chanceString": "1 in 16",
+      },
+
+      "Mario_Kart_8_Deluxe": {
+        "name": "Mario Kart 8 Deluxe - Nintendo Switch",
+        "chance": 0.125,
+        "chanceString": "1 in 8",
+      },
+
+      "Mario_Party_Superstars": {
+        "name": "Mario Party Superstars - Nintendo Switch",
+        "chance": 0.25,
+        "chanceString": "1 in 4",
+      },
+
+      "Mario_Odyssey": {
+        "name": "Mario Oddyssey - Nintendo Switch",
+        "chance": 0.5,
+        "chanceString": "1 in 2",
+      },
+    },
   }
 }
