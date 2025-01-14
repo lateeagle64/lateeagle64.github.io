@@ -92,7 +92,51 @@
       },
 
       "Astro_Bot": {
-        "name": "Astro Bot - PS%",
+        "name": "Astro Bot - PS5",
+        "chance": 0.5,
+        "chanceString": "1 in 2",
+      },
+    },
+    
+    "xbox": {
+      "GTA_5": {
+        "name": "Grand Theft Auto 5 - XBOX Series X",
+        "chance": 0.015625,
+        "chanceString": "1 in 64",
+      },
+
+      "GTA_SA": {
+        "name": "GTA: San Andreas - XBOX 360",
+        "chance": 0.03125,
+        "chanceString": "1 in 32",
+      },
+
+      "Halo_Infinite": {
+        "name": "Halo Infinite - XBOX One/Series X",
+        "chance": 0.04166666666,
+        "chanceString": "1 in 24",
+      },
+
+      "Black_Ops_6": {
+        "name": "COD: Black Ops 6 - XBOX One/Series X",
+        "chance": 0.0625,
+        "chanceString": "1 in 16",
+      },
+
+      "Madden_NFL_25": {
+        "name": "Madden NFL 25 - XBOX One/Series X",
+        "chance": 0.125,
+        "chanceString": "1 in 8",
+      },
+
+      "NBA_2K25": {
+        "name": "NBA 2K25 - XBOX Series X",
+        "chance": 0.25,
+        "chanceString": "1 in 4",
+      },
+
+      "Forza_Horizon_5": {
+        "name": "Forza Horizon 5 - XBOX One/Series X",
         "chance": 0.5,
         "chanceString": "1 in 2",
       },
