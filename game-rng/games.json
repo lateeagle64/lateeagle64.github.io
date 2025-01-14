@@ -1,1 +1,101 @@
+{
+  "games": {
+    "playstation": {
+      "GTA_5": {
+        "name": "Grand Theft Auto 5 - PS5",
+        "chance": 0.015625,
+        "chanceString": "1 in 64",
+      },
 
+      "Minecraft": {
+        "name": "Minecraft - PS5",
+        "chance": 0.020833333333,
+        "chanceString": "1 in 48",
+      },
+
+      "Elden_Ring": {
+        "name": "Elden Ring - PS5",
+        "chance": 0.020833333333,
+        "chanceString": "1 in 48",
+      },
+
+      "RDR": {
+        "name": "Red Dead Redemption - PS4",
+        "chance": 0.03125,
+        "chanceString": "1 in 32",
+      },
+
+      "Ragnarok": {
+        "name": "God of War: Ragnarok - PS5",
+        "chance": 0.03125,
+        "chanceString": "1 in 32",
+      },
+
+      "Resident_Evil_2": {
+        "name": "Resident Evil 2 - PS5",
+        "chance": 0.03125,
+        "chanceString": "1 in 32",
+      },
+
+      "Spiderman_2": {
+        "name": "Spiderman 2 - PS5",
+        "chance": 0.04166666666,
+        "chanceString": "1 in 24",
+      },
+
+      "Black_Ops_6": {
+        "name": "COD: Black Ops 6 - PS5",
+        "chance": 0.04166666666,
+        "chanceString": "1 in 24",
+      },
+
+      "Modern_Warfare_3": {
+        "name": "COD: Modern Warfare 3 - PS5",
+        "chance": 0.04166666666,
+        "chanceString": "1 in 24",
+      },
+
+      "Modern_Warfare_2": {
+        "name": "COD: Modern Warfare 2 - PS5",
+        "chance": 0.04166666666,
+        "chanceString": "1 in 24",
+      },
+
+      "Madden_NFL_25": {
+        "name": "Madden NFL 25 - PS5",
+        "chance": 0.0625,
+        "chanceString": "1 in 16",
+      },
+
+      "NBA_2K25": {
+        "name": "NBA 2K25 - PS4",
+        "chance": 0.0625,
+        "chanceString": "1 in 16",
+      },
+
+      "FC_25": {
+        "name": "FC 25 - PS5",
+        "chance": 0.125,
+        "chanceString": "1 in 8",
+      },
+
+      "Madden_NFL_24": {
+        "name": "Madden NFL 24 - PS5",
+        "chance": 0.125,
+        "chanceString": "1 in 8",
+      },
+
+      "Sparking_Zero": {
+        "name": "Dragon Ball: Sparking! Zero - PS5",
+        "chance": 0.25,
+        "chanceString": "1 in 4",
+      },
+
+      "Astro_Bot": {
+        "name": "Astro Bot - PS%",
+        "chance": 0.5,
+        "chanceString": "1 in 2",
+      },
+    },
+  }
+}
