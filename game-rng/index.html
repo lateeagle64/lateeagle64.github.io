@@ -18,27 +18,22 @@
         function selectRandomGame(games) {
           const pickRandom = (array) => array[Math.floor(Math.random() * array.length)];
 
-          // Select a random platform
           const platforms = Object.keys(games);
           const selectedPlatform = pickRandom(platforms);
 
-          // Get all games for the selected platform and sort by chance (ascending)
           const platformGames = Object.values(games[selectedPlatform]);
           platformGames.sort((a, b) => 
             parseFloat(a.chance.replace('%', '')) - parseFloat(b.chance.replace('%', ''))
           );
 
-          // Iterate through games starting from the lowest chance
           for (const game of platformGames) {
             const chanceValue = parseFloat(game.chance.replace('%', '')) / 100;
 
-            // Determine if the game is selected based on its chance
             if (Math.random() < chanceValue) {
               return game;
             }
           }
 
-          // If no game is selected, pick from the highest chance games
           const highestChance = parseFloat(platformGames[platformGames.length - 1].chance.replace('%', ''));
           const highestChanceGames = platformGames.filter(game => 
             parseFloat(game.chance.replace('%', '')) === highestChance
@@ -47,7 +42,6 @@
           return pickRandom(highestChanceGames);
         }
 
-        // Event listener for button click
         document.querySelector('.roll_btn').addEventListener('click', () => {
           const selectedGame = selectRandomGame(games);
 
