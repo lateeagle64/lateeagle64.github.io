@@ -1,33 +1,47 @@
 body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
-  background-color: #151515;
-  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  overflow: hidden;
 }
 
 .roll_btn {
-  padding: 35px 80px;
-  border: none;
-  font-size: 40px;
-  color: #ffffff;
-  border-radius: 20px;
-  font-weight: 700;
-  transition: 0.5s;
-  transition-property: box-shadow, font-size;
-  background: rgb(77, 227, 85);
-  box-shadow: 0 0 20px rgb(77, 227, 85);
-}
-
-button.roll_btn {
+  padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .roll_btn:hover {
-  box-shadow: 0 0 20px rgb(77, 227, 85),
-              0 0 30px rgb(77, 227, 85);
+  background-color: #0056b3;
+}
 
-  font-size: 50px;
+.fade-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.console-image {
+  max-width: 80%;
+  max-height: 80%;
+  border: 5px solid white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
