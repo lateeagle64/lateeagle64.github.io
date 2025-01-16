@@ -7,10 +7,17 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="flash"></div>
+
+  <div class="animation-container">
+    <img src="images/effects/shine.png" alt="Shine Effect" class="shine">
+    <img src="images/games/console.png" alt="Console" class="console-image">
+  </div>
+
   <button class="roll_btn">Roll</button>
 
   <div class="fade-overlay">
-    <img src="" alt="Console" class="console-image">
+    <img src="" alt="Selected Console" class="console-image">
   </div>
 
   <script>
@@ -40,7 +47,7 @@
         }
 
         const fadeOverlay = document.querySelector('.fade-overlay');
-        const consoleImage = document.querySelector('.console-image');
+        const consoleImage = document.querySelector('.fade-overlay .console-image');
 
         document.querySelector('.roll_btn').addEventListener('click', () => {
           const selectedGame = selectRandomGame(games);
