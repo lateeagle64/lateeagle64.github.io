@@ -1,6 +1,6 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
+  font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffffff;
   color: #f0f0f0;
   margin: 0;
   padding: 0;
@@ -12,10 +12,6 @@ body {
 
 .container {
   text-align: center;
-  background: #242424;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
   max-width: 500px;
   width: 90%;
 }
@@ -23,13 +19,13 @@ body {
 h1 {
   font-size: 1.8rem;
   margin-bottom: 20px;
-  color: #ffcc00;
+  color: #000000;
 }
 
 p {
   font-size: 1rem;
-  margin: 10px 0;
-  color: #d3d3d3;
+  margin: 2px 0;
+  color: #000000;
 }
 
 .button {
@@ -39,19 +35,19 @@ p {
   font-size: 1rem;
   font-weight: bold;
   color: #1a1a1a;
-  background: #ffcc00;
-  border: none;
-  border-radius: 12px;
+  background: #78ff74;
+  border-width: 1px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  transition: background 0.2s, transform 0.2s;
   text-decoration: none;
 }
 
 .button:hover {
-  background: #e6b800;
+  background: #6eea6b;
   transform: scale(1.05);
 }
 
 .button:active {
-  transform: scale(0.98);
+  transform: scale(0.96);
 }
