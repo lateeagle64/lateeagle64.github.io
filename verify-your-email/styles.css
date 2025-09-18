@@ -36,7 +36,7 @@ p {
   margin-top: 15px;
 }
 
-.button {
+.resend_button {
   display: inline-block;
   margin-top: 25px;
   padding: 12px 24px;
@@ -51,11 +51,35 @@ p {
   text-decoration: none;
 }
 
-.button:hover {
+.resend_button:hover {
   background: #6eea6b;
   transform: scale(1.05);
 }
 
-.button:active {
+.resend_button:active {
+  transform: scale(0.96);
+}
+
+.inbox_button {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  background: #78ff74;
+  border-width: 1px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+
+.inbox_button:hover {
+  background: #6eea6b;
+  transform: scale(1.05);
+}
+
+.inbox_button:active {
   transform: scale(0.96);
 }
