@@ -15,5 +15,16 @@
     <button class="resendButton">Resend email</button>
     <button class="inboxButton">Inbox</button>
   </div>
+  <script>
+  const resendBtn = document.querySelector('.resendButton');
+
+  resendBtn.addEventListener('click', () => {
+    resendBtn.classList.add('shake');
+
+    resendBtn.addEventListener('animationend', () => {
+      resendBtn.classList.remove('shake');
+    }, { once: true });
+  });
+</script>
 </body>
 </html>
