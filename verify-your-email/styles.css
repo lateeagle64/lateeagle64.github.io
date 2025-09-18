@@ -93,7 +93,7 @@ p {
   font-size: 1rem;
   font-weight: bold;
   color: #1a1a1a;
-  background: #ff9d9d;
+  background: #ffb0b0;
   border: 1px solid #1a1a1a;
   border-radius: 8px;
   cursor: pointer;
@@ -102,7 +102,7 @@ p {
 }
 
 .inboxButton:hover {
-  background: #eb8e8e;
+  background: #e99d9d;
   transform: scale(1.05);
 }
 
