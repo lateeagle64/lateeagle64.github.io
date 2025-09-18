@@ -62,7 +62,7 @@ p {
   margin-top: 15px;
 }
 
-.resend_button {
+.resendButton {
   display: inline-block;
   margin-top: 25px;
   padding: 12px 24px;
@@ -77,16 +77,16 @@ p {
   text-decoration: none;
 }
 
-.resend_button:hover {
+.resendButton:hover {
   background: #6eea6b;
   transform: scale(1.05);
 }
 
-.resend_button:active {
+.resendButton:active {
   transform: scale(0.96);
 }
 
-.inbox_button {
+.inboxButton {
   display: inline-block;
   margin-top: 25px;
   padding: 12px 24px;
@@ -101,11 +101,11 @@ p {
   text-decoration: none;
 }
 
-.inbox_button:hover {
+.inboxButton:hover {
   background: #6eea6b;
   transform: scale(1.05);
 }
 
-.inbox_button:active {
+.inboxButton:active {
   transform: scale(0.96);
 }
