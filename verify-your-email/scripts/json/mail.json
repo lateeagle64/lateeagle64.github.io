@@ -3,11 +3,20 @@
   "author": "Prizes n Rewards",
   "mail": {
     "title": "You just won $1000!",
-    "message": "Dear *********67@mail.com, You just won $1000!!1!1 Enter our website to claim your prize!",
-
-    "type": "spam",
+    "messages": [
+      "image=moneyScam.png",
+      "",
+      "Dear *********67@mail.com,",
+      "",
+      "You just won $1000!!!",
+      "Enter our website to claim your prize!",
+      "",
+      "PS: Not a scam!!",
+    ],
     
+    "type": "spam",
     "replies": [],
+    
     "functions": [
       {
         "name": "open_scam1",
