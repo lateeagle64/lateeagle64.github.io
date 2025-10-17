@@ -6,8 +6,6 @@
     "moves": {
       "punch": {
         "name": "punch",
-        "displayName": "Punch",
-
         "sequence": 2,
         
         "damage": 6,
@@ -16,13 +14,21 @@
       
       "powerPunch": {
         "name": "powerPunch",
-        "displayName": "Power Punch",
-
-        "sequence": 2,
+        "sequence": 1,
         
         "damage": 18,
         "hold": true,
       }
+    },
+
+    "dodge": {
+      "frontDodge": {
+        "name": "frontDodge",
+      },
+      
+      "backDodge": {
+        "name": "backDodge",
+      },
     },
     
     "combo": {
