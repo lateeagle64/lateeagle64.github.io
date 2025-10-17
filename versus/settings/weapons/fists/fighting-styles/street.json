@@ -2,26 +2,32 @@
   "settings": {
     "name": "street",
     "displayName": "Street",
+    
     "moves": {
       "punch": {
         "name": "punch",
         "displayName": "Punch",
+        
         "damage": 6,
-        "key": "1"
+        "hold": false,
       },
+      
       "powerPunch": {
         "name": "powerPunch",
         "displayName": "Power Punch",
+        
         "damage": 18,
-        "key": "2"
+        "hold": true,
       }
     },
+    
     "combo": {
       "kick": {
         "name": "kick",
         "displayName": "Kick",
         "damage": 18
       },
+      
       "groundPound": {
         "name": "groundPound",
         "displayName": "Ground Pound",
