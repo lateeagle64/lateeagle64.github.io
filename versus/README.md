@@ -23,7 +23,7 @@ I to block
 street:
 
 punch: 6 damage
-power punch: 12 damage
+power punch: 16 damage
 
 combo: kick after 2 perfect hits (18 damage)
 2x combo: ground pound (36 damage)
