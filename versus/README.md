@@ -5,7 +5,9 @@ Plan:
 
 weapons: None (fists), Bo Staff, Baton
 
-fighting combos: kick after 2 perfect hits
+fighting style 1:
+kick after 2 perfect hits
+
 
 Controls:
 
