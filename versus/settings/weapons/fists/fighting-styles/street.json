@@ -7,6 +7,8 @@
       "punch": {
         "name": "punch",
         "displayName": "Punch",
+
+        "sequence": 2,
         
         "damage": 6,
         "hold": false,
@@ -15,6 +17,8 @@
       "powerPunch": {
         "name": "powerPunch",
         "displayName": "Power Punch",
+
+        "sequence": 2,
         
         "damage": 18,
         "hold": true,
@@ -25,13 +29,13 @@
       "kick": {
         "name": "kick",
         "displayName": "Kick",
-        "damage": 18
+        "damage": 18,
       },
       
       "groundPound": {
         "name": "groundPound",
         "displayName": "Ground Pound",
-        "damage": 30
+        "damage": 25,
       }
     }
   }
