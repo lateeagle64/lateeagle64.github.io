@@ -8,13 +8,13 @@ controls:
 
 P1: 
 WASD to move, S to do cool useless fighting stance,
-E to punch
+E to punch/power punch (hold)
 Q to dodge
 R to block
 
 P2
 Arrows to move, down arrow to do cool useless fighting stance
-P to punch
+P to punch/power punch (hold)
 O to dodge
 I to block
 
