@@ -20,7 +20,6 @@ const animations = {
   walk: { start: 13, length: 2, speed: 150 },
 };
 
-// --- Input handling ---
 document.addEventListener("keydown", (e) => {
   keys[e.key.toLowerCase()] = true;
 });
@@ -29,7 +28,6 @@ document.addEventListener("keyup", (e) => {
   keys[e.key.toLowerCase()] = false;
 });
 
-// --- Set animation safely ---
 function setAnimation(name) {
   if (currentAnim !== name) {
     currentAnim = name;
@@ -37,7 +35,6 @@ function setAnimation(name) {
   }
 }
 
-// --- Movement + action logic ---
 function updatePosition() {
   let moving = false;
 
@@ -54,7 +51,7 @@ function updatePosition() {
   if (keys["e"]) {
     setAnimation(punchToggle ? "punch2" : "punch1");
     punchToggle = !punchToggle;
-    keys["e"] = false; // one punch per press
+    keys["e"] = false;
   }
 
   if (keys["q"]) {
@@ -69,7 +66,6 @@ function updatePosition() {
   player1.style.left = `${posX}px`;
 }
 
-// --- Frame update ---
 function updateFrame() {
   const anim = animations[currentAnim];
   maxFrames = anim.length;
@@ -84,7 +80,6 @@ function updateFrame() {
   frame = (frame + 1) % maxFrames;
 }
 
-// --- Main loop ---
 function gameLoop() {
   updatePosition();
   updateFrame();
