@@ -15,7 +15,7 @@ body {
   background: linear-gradient(to top, #333, #555);
 }
 
-#fighter {
+#player1 {
   position: absolute;
   width: 1024px;
   height: 1024px;
