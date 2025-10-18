@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.game-container {
+  position: relative;
+  width: 1024px;
+  height: 1024px;
+  overflow: hidden;
+  background: linear-gradient(to top, #333, #555);
+}
+
+#fighter {
+  position: absolute;
+  width: 1024px;
+  height: 1024px;
+  background-image: url("sprites/fighting-styles/street.png");
+  background-size: 4096px 4096px;
+  image-rendering: pixelated;
+  left: 0;
+  bottom: 0;
+  transform: scaleX(1);
+  transition: transform 0.1s;
+}
