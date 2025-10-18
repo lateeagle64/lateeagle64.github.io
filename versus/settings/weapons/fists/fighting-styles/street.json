@@ -8,7 +8,7 @@
         "name": "punch",
         "sequence": 2,
         
-        "damage": 6,
+        "damage": 3,
         "hold": false,
       },
       
@@ -16,7 +16,7 @@
         "name": "powerPunch",
         "sequence": 1,
         
-        "damage": 18,
+        "damage": 10,
         "hold": true,
       }
     },
@@ -35,13 +35,34 @@
       "kick": {
         "name": "kick",
         "displayName": "Kick",
-        "damage": 18,
+        
+        "damage": 10,
+        "delay": 0,
+
+        "rapid": false,
+        "damageInterval": 0,
       },
+
+      "bodySlam": {
+        "name": "bodySlam",
+        "displayName": "Body Slam",
+        
+        "damage": 20,
+        "delay": 0.5,
+
+        "rapid": false,
+        "damageInterval": 0,
+      }
       
       "groundPound": {
         "name": "groundPound",
         "displayName": "Ground Pound",
-        "damage": 25,
+        
+        "damage": 30,
+        "delay": 0,
+        
+        "rapid": true,
+        "damageInterval": 0.2,
       }
     }
   }
