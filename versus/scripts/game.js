@@ -1,13 +1,13 @@
-const fighter = document.getElementById("fighter");
+const player1 = document.getElementById("player1");
 
 const SPRITE_SIZE = 1024;
 const SPRITES_PER_ROW = 4;
 let frame = 0;
 let maxFrames = 4;
-let animSpeed = 100;
+let animSpeed = 200;
 let currentAnim = "idle";
 let punchToggle = false;
-let direction = 1;
+let direction = 1; // 1 = right, -1 = left
 let posX = 0;
 let keys = {};
 
@@ -20,42 +20,56 @@ const animations = {
   walk: { start: 13, length: 2, speed: 150 },
 };
 
-document.addEventListener("keydown", (e) => (keys[e.key.toLowerCase()] = true));
-document.addEventListener("keyup", (e) => (keys[e.key.toLowerCase()] = false));
+// --- Input handling ---
+document.addEventListener("keydown", (e) => {
+  keys[e.key.toLowerCase()] = true;
+});
 
+document.addEventListener("keyup", (e) => {
+  keys[e.key.toLowerCase()] = false;
+});
+
+// --- Set animation safely ---
 function setAnimation(name) {
-  if (currentAnim === name) return;
-  currentAnim = name;
-  frame = 0;
+  if (currentAnim !== name) {
+    currentAnim = name;
+    frame = 0;
+  }
 }
 
+// --- Movement + action logic ---
 function updatePosition() {
+  let moving = false;
+
   if (keys["a"]) {
     direction = -1;
     posX -= 10;
-    setAnimation("walk");
+    moving = true;
   } else if (keys["d"]) {
     direction = 1;
     posX += 10;
-    setAnimation("walk");
-  } else if (!keys["q"] && !keys["e"]) {
-    setAnimation("idle");
+    moving = true;
   }
 
   if (keys["e"]) {
     setAnimation(punchToggle ? "punch2" : "punch1");
     punchToggle = !punchToggle;
-    keys["e"] = false;
+    keys["e"] = false; // one punch per press
   }
 
   if (keys["q"]) {
     setAnimation("blockIdle");
+  } else if (!moving && !keys["e"]) {
+    setAnimation("idle");
+  } else if (moving) {
+    setAnimation("walk");
   }
 
-  fighter.style.transform = `scaleX(${direction})`;
-  fighter.style.left = `${posX}px`;
+  player1.style.transform = `scaleX(${direction})`;
+  player1.style.left = `${posX}px`;
 }
 
+// --- Frame update ---
 function updateFrame() {
   const anim = animations[currentAnim];
   maxFrames = anim.length;
@@ -65,11 +79,12 @@ function updateFrame() {
   const row = Math.floor(currentFrame / SPRITES_PER_ROW);
   const col = currentFrame % SPRITES_PER_ROW;
 
-  fighter.style.backgroundPosition = `-${col * SPRITE_SIZE}px -${row * SPRITE_SIZE}px`;
+  player1.style.backgroundPosition = `-${col * SPRITE_SIZE}px -${row * SPRITE_SIZE}px`;
 
   frame = (frame + 1) % maxFrames;
 }
 
+// --- Main loop ---
 function gameLoop() {
   updatePosition();
   updateFrame();
