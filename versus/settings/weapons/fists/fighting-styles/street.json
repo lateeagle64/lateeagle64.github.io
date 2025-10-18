@@ -5,7 +5,9 @@
 
     "block": {
       "name": "block",
+      
       "type": "punchOnly",
+      "alternate": false,
     },
     
     "moves": {
