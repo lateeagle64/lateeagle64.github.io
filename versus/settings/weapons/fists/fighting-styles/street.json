@@ -2,6 +2,11 @@
   "settings": {
     "name": "street",
     "displayName": "Street",
+
+    "block": {
+      "name": "block",
+      "type": "punchOnly",
+    },
     
     "moves": {
       "punch": {
