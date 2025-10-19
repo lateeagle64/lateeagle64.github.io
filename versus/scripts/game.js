@@ -1,6 +1,6 @@
 const player1 = document.getElementById("player1");
 
-const SPRITE_SIZE = 1024;
+const SPRITE_SIZE = 128;
 const SPRITES_PER_ROW = 4;
 let frame = 0;
 let maxFrames = 4;
