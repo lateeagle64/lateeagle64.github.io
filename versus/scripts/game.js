@@ -1,13 +1,14 @@
 const player1 = document.getElementById("player1");
 
-const SPRITE_SIZE = 128;
+const SPRITE_SIZE = 128; // each frame = 512 / 4
 const SPRITES_PER_ROW = 4;
+
 let frame = 0;
 let maxFrames = 4;
 let animSpeed = 200;
 let currentAnim = "idle";
 let punchToggle = false;
-let direction = 1; // 1 = right, -1 = left
+let direction = 1;
 let posX = 0;
 let keys = {};
 
@@ -37,14 +38,15 @@ function setAnimation(name) {
 
 function updatePosition() {
   let moving = false;
+  const speed = 5;
 
   if (keys["a"]) {
     direction = -1;
-    posX -= 10;
+    posX -= speed;
     moving = true;
   } else if (keys["d"]) {
     direction = 1;
-    posX += 10;
+    posX += speed;
     moving = true;
   }
 
@@ -75,7 +77,10 @@ function updateFrame() {
   const row = Math.floor(currentFrame / SPRITES_PER_ROW);
   const col = currentFrame % SPRITES_PER_ROW;
 
-  player1.style.backgroundPosition = `-${col * SPRITE_SIZE}px -${row * SPRITE_SIZE}px`;
+  const offsetX = col * SPRITE_SIZE;
+  const offsetY = row * SPRITE_SIZE;
+
+  player1.style.backgroundPosition = `-${offsetX}px -${offsetY}px`;
 
   frame = (frame + 1) % maxFrames;
 }
