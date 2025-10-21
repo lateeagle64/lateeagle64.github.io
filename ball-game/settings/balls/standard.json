@@ -1,0 +1,10 @@
+{
+  "name": "Standard",
+  "color": "#E0E0E0",
+  "description": "Standard ball with balanced stats.",
+  "stats": {
+    "speed": 50,
+    "hp": 100,
+    "damage": 5,
+  }
+}
