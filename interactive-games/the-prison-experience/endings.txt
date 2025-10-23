@@ -1,2 +1,28 @@
-ENDING 1: DUG OUT -
-You and your cellmate, Albert dig a hole in the wall.
+----------------
+
+ENDING 1: DIG OUT
+In order to complete, you must use multiple shivs (before they break) and fully dig out the hole in the wall.
+
+You and your cellmate, Albert dig a hole in the wall in the middle of the night and escape. The wall was patched up, due to there being
+a tunnel there.
+
+You avoid the guards lights sneakily and escape the prison.
+
+----------------
+
+ENDING 2: RIOT
+
+In order to complete, you must get a reputation of 95%, and convince everyone in the cafeteria to riot against the guards. 
+You escape the prison with the help of the other inmates
+
+You can also win a fight with the leader of the top gang (in the cafeteria), and start a riot. 
+You need a reputation of 25% in order to complete this, so people will really hate you;.
+You'll have to escape the other members in an epic cutscene that I'll make.
+
+----------------
+
+ENDING 3: INBOUND
+
+In order to complete, you must get a reputation of 85%, and bribe a guard to help you escape. You'll need a ton of money for this to
+work, and if you fail, you will lose 75% of that money, and all of your items in your inventory. If you successfully bribe the guard, they
+will come during lights out and sneak you out. They'll give you a uniform and you both escape via helicopter, but you leave your cellmate behind.
