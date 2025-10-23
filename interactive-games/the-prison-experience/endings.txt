@@ -21,8 +21,15 @@ You'll have to escape the other members in an epic cutscene that I'll make.
 
 ----------------
 
-ENDING 3: INBOUND
+ENDING 3: BUST OUT
+
+Escape with a keycard, either successfully pickpocketed, bought from a dealer, or found in the trash. Very difficult to accomplish. 
+You must run out with quick time events and dodge guards.
+
+----------------
+
+ENDING 4: INBOUND
 
 In order to complete, you must get a reputation of 85%, and bribe a guard to help you escape. You'll need a ton of money for this to
-work, and if you fail, you will lose 75% of that money, and all of your items in your inventory. If you successfully bribe the guard, they
-will come during lights out and sneak you out. They'll give you a uniform and you both escape via helicopter, but you leave your cellmate behind.
+work, and if you fail, you will lose 75% of that money, and all of your items in your inventory. Your reputation will go down by 50%.
+If you successfully bribe the guard, they will come during lights out and sneak you out. They'll give you a uniform and you both escape via helicopter, but you leave your cellmate behind.
