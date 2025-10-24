@@ -2,14 +2,17 @@ import random
 """Dead just defines whether or ont the game is over if dead is 0 the game is going if dead is 1 the game is over"""
 dead=0
 speed=0
+job=False
 escape=0
+salary=0
+mop=False
 strength=0
 rep=0
 money=0
 shovel=False
 energy=50
 def cell():
-    global speed,dead,strength,money,rep,energy,shovel,escape
+    global speed,dead,strength,money,rep,energy,shovel,escape,job,salary
     while dead !=1:
         jumpscare=random.randint(1,100)
 
@@ -17,6 +20,7 @@ def cell():
         print("Enter 1 to go to your cell")
         print("Enter 2 to go to the yard")
         print("Enter 3 to go to the shop")
+        print("Enter 4 to go work your prison job")
         action = input("Enter here: ")
         print("")
         if jumpscare==67:
@@ -136,15 +140,69 @@ def cell():
                         energy=energy-energy_wasted
         if action=="3":
             print("Welcome to the harrybarry shop")
+            print(f"Your balance is {money}")
             print("Enter 1 to buy a shovel ($5)")
             print("Enter 2 to but a sword($5)")
             print("Enter 3 to challenge him to an arm wrestle(20 strength needed or you would lose)")
             shop_act=input("Enter here: ")
             if shop_act=="1":
-                shovel=True
-                print("You bought a shovel!")
+                if money>5:
+                    money=money-5
+                    shovel=True
+                    print("You bought a shovel!")
+                else:
+                    print("harrybarry:You tryna steal?!")
+                    print("harrybarry:Im gon' flip a coin an' if its heads yu good to go")
+                    coin=random.randint(1,2)
+                    if coin==1:
+                        print("You done bru' it was tails")
+                        print("---harrybarry Slaughtered You!---")
+                        dead=1
+                        break
+                    if coin==2:
+                        safe=False
+                        print("You gooh cuh' it was heads")
+                    
+        if action=="4":
+            if job==True:
+                print(f"Your job is a {job} and you make {salary}")
+                print(f"You have {energy} energy")
+                input("How many hours do you want to work (Each hour -10 energy")
+            if job == False:
+                print("You dont have a job!")
+                print("Enter 1 to apply for a job")
+                print("Enter 2 to go back to menu")
+                job_apply=input("Enter here: ")
+                if job_apply==1:
+                    print("-----Job list-----")
+                    print("Enter 1 for Coal miner $0.33/H(shovel required)")
+                    print("Enter 2 for Factory worker $0.15H")
+                    print("Enter 3 for Janitor $0.25H(mop required)")
+                    job_choice=input("Enter here: ")
+                    if job_choice=="1":
+                        if shovel==False:
+                            print("You dont have a shovel!")
+                            break
+                        if shovel ==True:
+                            print("Your job is now a coal miner!")
+                            job="coal miner"
+                            salary=0.33
+                    if job_choice=="2":
+                        print("Your job in now a factory worker")
+                        job="factory worker"
+                        salary=0.15
+                    if job_choice=="3":
+                        if mop==False:
+                            print("You dont have a mop!")
+                            break
+                        if mop==True:
+                            print("Your job is now a janitor")
+                            job="janitor"
+                            salary=0.25
+                            
+                    
         else: 
-            print("Invalid input. Please enter 1,2 or 3.")
+            print("Invalid input. Please enter 1,2,3 or 4.")
         if energy<1:
             print("You exausted yourself to death, You had 0 energy")
             dead=1
@@ -156,5 +214,3 @@ while dead !=1 or escape !=1:
     cell()
 
 
-
-    
