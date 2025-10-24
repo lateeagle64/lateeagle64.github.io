@@ -1,114 +1,160 @@
-print('Welcome to prison break!')
-print("")
-rules=input("Press 1 for rules and 2 to start: ")
-print("")
+import random
+"""Dead just defines whether or ont the game is over if dead is 0 the game is going if dead is 1 the game is over"""
+dead=0
+speed=0
+escape=0
+strength=0
+rep=0
+money=0
+shovel=False
+energy=50
+def cell():
+    global speed,dead,strength,money,rep,energy,shovel,escape
+    while dead !=1:
+        jumpscare=random.randint(1,100)
 
-if rules == "1":
-    print(" This is a story simlating a prison break where you can press the keystrokes 1 2 or 3 to decide your next desicion ")
-    print("")
-    rulesstart=input("Now when youre ready to play enter the letter s:  ")
-    print("")
+        print("\n--- Cell Menu ---")
+        print("Enter 1 to go to your cell")
+        print("Enter 2 to go to the yard")
+        print("Enter 3 to go to the shop")
+        action = input("Enter here: ")
+        print("")
+        if jumpscare==67:
+            print("D.Piddy does stuff to you thats not nice")
+            dead=1
+            break
+    
+        if action == '1':
+            print("You're in your cell.")
+            print("Enter 1 to check your stats")
+            print("Enter 2 to sleep")
+            print("Enter 3 to search for items")
+            cell_action=input("Enter here: ")
+            print("")
+            if cell_action=="1":
+                print("--------Stats--------")
+                print(f"Your speed is {speed}")
+                print(f"Your strength is {strength}")
+                print(f"Your money is {money}")
+                print(f"Your rep is {rep}")
+                print(f"Your energy is {energy} (Max=100)")
+                print("")
+            if cell_action=="2":
+                sleep=random.randint(15,40)
+                energy=energy+sleep
+                if sleep<20:
+                    print("You sleep was awful")
+                    print(f"+{sleep} energy")
+                    print("")
+                if sleep<30 and sleep>21:
+                    print("You sleep was Decent")
+                    print(f"+{sleep} energy")
+                    print("")
+                if sleep<37 and sleep>31:
+                    print("You sleep was Great")
+                    print(f"+{sleep} energy")
+                    print("")
+                if sleep<41 and sleep>38:
+                    print("You sleep was Perfect")
+                    print(f"+{sleep} energy")
+                    print("")
+                
+        
+        
+        elif action == '2':
+            print("You're in the yard.")
+            print("Enter 1 to workout")
+            print("Enter 2 to search for items")
+            print("Enter 3 to change locations")
+            yard_actions=input("Enter here: ")
+            print("")
+            if yard_actions=="1":
+                    print("Enter 1 to go to treadmills (-10 energy)")
+                    print("Enter 2 to go to bench press(-10 energy)")
+                    print("Enter 3 to do both(-10 energy)")
+                    gym_action=input("Enter here: ")
+                    if gym_action=="1":
+                        speed=speed+10
+                        print("+10 speed!")
+                        print(f"Your speed is now {speed}")
+                    if gym_action=="2":
+                         strength=strength+10
+                         print("+10 strength!")
+                         print(f"Your strength is now {strength}")
+                    if gym_action=="3":
+                        speed=speed+5
+                        strength=strength+5
+                        print("+5 speed!")
+                        print(f"Your speed is now {speed}")
+                        print("+5 strength!")
+                        print(f"Your strength is now {strength}")
+                    energy=energy-10
+            if yard_actions=="2":
+                ransearch=random.randint(1,100)
+                print("Where would you search?")
+                print("Enter 1 for trash can (-5 energy)")
+                print("Enter 2 for grass(-5 energy)")
+                print("Enter 3 to dig into the ground to search (-10 energy)(Shovel needed)")
+                search_yard=input("Enter here: ")
+                if search_yard=="1":
+                    print("You searched the trash can and found:")
+                    energy=energy-5
+                    if ransearch<30 and ransearch>0:
+                        print("A chicken nugget(does nothing)")
+                    elif ransearch==100:
+                        print("You found $10")
+                    elif ransearch<100 and ransearch>89:
+                        print("You found $1")
+                    elif ransearch<90 and ransearch>80:
+                        print("The guard catches you and you lose %50 of your money")
+                        money=money/2
+                        print("")
+                        print(f"Your money is now{money}")
+                    else:
+                        print("You found nothing")
+                if search_yard=="2":
+                    print("You searched the grass and found:")
+                    energy=energy-5
+                    if ransearch<30 and ransearch>0:
+                        print("A chicken nugget(does nothing)")
+                    elif ransearch==100:
+                        print("You found $10")
+                    elif ransearch<100 and ransearch>89:
+                        print("You found $1")
+                    elif ransearch<90 and ransearch>80:
+                        print("The guard catches you and you lose %50 of your money")
+                        money=money/2
+                        print("")
+                        print(f"Your money is now{money}")
+                    else:
+                        print("You found nothing")
+                if search_yard=="3":
+                    if shovel==True:
+                        print("You have a shovel!")
+                        hours_dig_search=int(input("How many hours do you want to dig for(each hour -15 energy)"))
+                        energy_wasted=hours_dig_search*15
+                        energy=energy-energy_wasted
+        if action=="3":
+            print("Welcome to the harrybarry shop")
+            print("Enter 1 to buy a shovel ($5)")
+            print("Enter 2 to but a sword($5)")
+            print("Enter 3 to challenge him to an arm wrestle(20 strength needed or you would lose)")
+            shop_act=input("Enter here: ")
+            if shop_act=="1":
+                shovel=True
+                print("You bought a shovel!")
+        else: 
+            print("Invalid input. Please enter 1,2 or 3.")
+        if energy<1:
+            print("You exausted yourself to death, You had 0 energy")
+            dead=1
+        if energy >100:
+            energy=100
 
-
-if rules == "2" or rulesstart =="s":
-    print("You are chilling in your cell when a big black man walks up to you")
-    print("")
-    print("Enter 1 to try to beat him up")
-    print("Enter 2 to try to ask him to help escape the prison")
-    print("Enter 3 to run away")
-    print("")
-    choice_1=input("What do you do: ")
-    if choice_1 == "1":
-        print("What were you thinking idiot hes big AND black")
-        print("You lost (you got graped)")
+print("Welcome to Prison Break 2.0")
+while dead !=1 or escape !=1:
+    cell()
 
 
 
     
-    if choice_1 == "2":
-        print("You're safe for now... ")
-        print("")
-        print("You found baby oil on the floor")
-        babyoil=input("Do you pick it up Y/N: ")
-        if babyoil=="Y":
-            leftoright=input("You hit a hallway do you go left or right R/L?: ")
-            if leftoright == "L":
-                print("You hear the black guy with his gang yelling down the other hallway. i wonder what happened there...")
-                print("")
-                print("You found a phone on the ground do you pick it up")
-                print("1 for yes 2 for no")
-                phone=input("")
-                if phone == "1":
-                    print("You got addicted to yt shorts and the guard catches you and the big black mans gang an the police oil you up and tickle you in spots you didnt know existed")
-                if  phone == "2":
-                    print("why wouldnt you pick it up dumbass well i dont know what to put here put youre stupid for not picking up the phone and just because of that you snooze you lose")
-            
-            
-            if leftoright == "R":
-                print("The big black man got his gang stole the oil and oiled you up")
-        if babyoil == "N":
-            print("")
-            print("When you replay the game PLEASE dont choose the other option you dont wannna know but you are safe.")
-            print("")
-            print("Your rep in the prison increased and the prison dealer is asking you if you want a pickaxe or sword")
-            print("")
-            print("Enter 1 for sword")
-            print("Enter 2 for pickaxe")
-            print("")
-            dealer=input("Enter here: ")
-            print("")
-            print("That choice will be important later...")
-            print("")
-            guy_left=input("The big black man tells you to go left at the hallway but everyone else says to go right which direction do you go? L/R:")
-            if guy_left == "L":
-                
-                    blackgang=input("You go left to see the black man and his gang and you might win depending on what item you took for the dealer press enter to continue")
-                    if dealer=="1":
-                        print("Ending 1 unlocked: Fight the gang")
-                    if dealer =="2":
-                        print("They beat you up stole your pickaxe and escape without you")                    
-            if guy_left == "R":
-                hole=input("You find a hole and you win depending on the item you took from the dealer press enter to find out.")
-                if dealer=="1":
-                    print("You try breaking out with the sword and they catch you and kill you")
-                if dealer == "2":
-                    print("You dug out successfully")
-                    print("")
-                    print("")
-                    print("YOU WIN!!!!")
-                    print("")
-                    print("Ending 2 unlocked:  Dugout")
-                    
-                
-                      
-            
-    if choice_1 == "3":
-        print("You barely escape but you made an enemy")
-        print("")
-        print("There are 3 items you can aquire from the prison gang man")
-        print("Enter 1 for the spoon")
-        print("Enter 2 for the jackhammer")
-        print("Enter 3 for hammer")
-        print("")
-        choice3=input("Choose an option: ")
-        if choice3 == "1":
-            print("The spoon is too weak to break through the wall so you try to beat up the big black man and you get oiled up and die")
-        if choice3 == "2":
-                print("Yeah no that is wayyyyy to loud you lose")
-        if choice3 == "3":
-            print("Good choice")
-            print("")
-            print("The black guy is asking you to join a gang war do you join it or do you ignore?")
-            print("")
-            print("Enter 1 to ignore")
-            print("Enter 2 to join the fight")
-            print("")
-            gangfight=input("Enter here: ")
-            if gangfight == "2":
-                    print("You try using your hammer to beat up the other guys but they knock you out due to them having their own hammers")
-            if gangfight=="1":
-                        print("They peer pressure you but you keep saying no and they beat you up.")
-
-
-    if choice_1 == "67":
-        print("MANGOES EVERYWHERE")
