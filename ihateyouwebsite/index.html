@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIF Color Replacer</title>
+<style>
+  body { font-family: sans-serif; padding: 20px; }
+  input[type=color] { width: 80px; }
+</style>
+</head>
+<body>
+<h1>GIF Color Replacer</h1>
+<label>Upload GIF: <input type="file" id="gifInput" accept="image/gif"></label><br><br>
+
+<h3>Select Colors:</h3>
+<div>
+  Main: <input type="color" id="mainColor" value="#ff1010"><br>
+  Shadow: <input type="color" id="shadowColor" value="#0000ff"><br>
+  Outline: <input type="color" id="outlineColor" value="#010123"><br>
+  Visor Outline: <input type="color" id="visorOutlineColor" value="#023a02"><br>
+  Visor Shadow: <input type="color" id="visorShadowColor" value="#023a02"><br>
+  Visor Main: <input type="color" id="visorMainColor" value="#00ff00"><br>
+</div>
+
+<br>
+<button id="processBtn">Process GIF</button>
+
+<h3>Result:</h3>
+<canvas id="canvas" style="display:none;"></canvas>
+<img id="resultGif">
+
+<script src="https://cdn.jsdelivr.net/npm/gif.js/dist/gif.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gifuct-js/dist/gifuct.min.js"></script>
+<script>
+const tolerances = {
+  main: 100,
+  shadow: 50,
+  outline: 10,
+  visorOutline: 10,
+  visorShadow: 75,
+  visorMain: 100
+};
+
+function hexToRgb(hex) {
+  const bigint = parseInt(hex.replace("#",""), 16);
+  return {r: (bigint >> 16) & 255, g: (bigint >> 8) & 255, b: bigint & 255};
+}
+
+function colorDistance(c1, c2) {
+  return Math.sqrt(
+    (c1.r - c2.r)**2 +
+    (c1.g - c2.g)**2 +
+    (c1.b - c2.b)**2
+  );
+}
+
+function replaceColors(imageData, colorMap) {
+  const data = imageData.data;
+  for (let i=0; i<data.length; i+=4) {
+    const pixel = {r:data[i], g:data[i+1], b:data[i+2]};
+    for (let key in colorMap) {
+      const {source, target, tolerance} = colorMap[key];
+      if (colorDistance(pixel, source) <= tolerance) {
+        data[i] = target.r;
+        data[i+1] = target.g;
+        data[i+2] = target.b;
+      }
+    }
+  }
+  return imageData;
+}
+
+document.getElementById('processBtn').addEventListener('click', async () => {
+  const file = document.getElementById('gifInput').files[0];
+  if (!file) return alert("Upload a GIF first!");
+
+  const arrayBuffer = await file.arrayBuffer();
+  const gif = new window.GifuctJS.Gif(new Uint8Array(arrayBuffer));
+  const frames = gif.decompressFrames(true);
+
+  const colorMap = {
+    main: {source: hexToRgb("#ff1010"), target: hexToRgb(document.getElementById('mainColor').value), tolerance: tolerances.main},
+    shadow: {source: hexToRgb("#0000ff"), target: hexToRgb(document.getElementById('shadowColor').value), tolerance: tolerances.shadow},
+    outline: {source: hexToRgb("#010123"), target: hexToRgb(document.getElementById('outlineColor').value), tolerance: tolerances.outline},
+    visorOutline: {source: hexToRgb("#023a02"), target: hexToRgb(document.getElementById('visorOutlineColor').value), tolerance: tolerances.visorOutline},
+    visorShadow: {source: hexToRgb("#023a02"), target: hexToRgb(document.getElementById('visorShadowColor').value), tolerance: tolerances.visorShadow},
+    visorMain: {source: hexToRgb("#00ff00"), target: hexToRgb(document.getElementById('visorMainColor').value), tolerance: tolerances.visorMain}
+  };
+
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = frames[0].dims.width;
+  canvas.height = frames[0].dims.height;
+
+  const gifEncoder = new GIF({workers:2, quality:10, width: canvas.width, height: canvas.height});
+
+  for (let frame of frames) {
+    const imageData = ctx.createImageData(frame.dims.width, frame.dims.height);
+    imageData.data.set(frame.patch);
+    const newImageData = replaceColors(imageData, colorMap);
+    ctx.putImageData(newImageData, 0, 0);
+    gifEncoder.addFrame(ctx, {copy:true, delay: frame.delay});
+  }
+
+  gifEncoder.on('finished', blob => {
+    document.getElementById('resultGif').src = URL.createObjectURL(blob);
+  });
+
+  gifEncoder.render();
+});
+</script>
+</body>
+</html>
