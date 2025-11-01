@@ -30,7 +30,8 @@ Shadow: <input type="color" id="shadowColor" value="#09158E"><br>
 
 <!-- Libraries -->
 <script src="https://cdn.jsdelivr.net/npm/gif.js/dist/gif.js"></script>
-<script src="https://unpkg.com/gifuct-js@2.1.0/dist/gifuct.min.js"></script>
+<!-- ✅ working link to gifuct-js -->
+<script src="https://cdn.jsdelivr.net/gh/matt-way/gifuct-js@2.1.0/dist/gifuct.min.js"></script>
 
 <script>
 const tolerances = {
@@ -67,9 +68,8 @@ document.getElementById('processBtn').addEventListener('click', async()=>{
   const file=document.getElementById('gifInput').files[0];
   if(!file){alert("Upload a GIF first!");return;}
 
-  // safety check to ensure gifuct-js loaded
   if(!window.GifuctJS||!window.GifuctJS.Gif){
-    alert("gifuct-js failed to load. Check network or CDN.");return;
+    alert("gifuct-js failed to load — check CDN or network.");return;
   }
 
   const arrBuf=await file.arrayBuffer();
