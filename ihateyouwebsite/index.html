@@ -13,14 +13,11 @@
 <h1>GIF Color Replacer</h1>
 <label>Upload GIF: <input type="file" id="gifInput" accept="image/gif"></label><br><br>
 
-<h3>Select Colors:</h3>
+<h3>Pick Template Colors:</h3>
 <div>
+  Outline: <input type="color" id="outlineColor" value="#010123"><br>
   Main: <input type="color" id="mainColor" value="#ff1010"><br>
   Shadow: <input type="color" id="shadowColor" value="#0000ff"><br>
-  Outline: <input type="color" id="outlineColor" value="#010123"><br>
-  Visor Outline: <input type="color" id="visorOutlineColor" value="#023a02"><br>
-  Visor Shadow: <input type="color" id="visorShadowColor" value="#023a02"><br>
-  Visor Main: <input type="color" id="visorMainColor" value="#00ff00"><br>
 </div>
 
 <br>
@@ -40,6 +37,23 @@ const tolerances = {
   visorOutline: 10,
   visorShadow: 75,
   visorMain: 100
+};
+
+// Original template colors
+const sourceColors = {
+  main: '#ff1010',
+  shadow: '#0000ff',
+  outline: '#010123',
+  visorOutline: '#023a02',
+  visorShadow: '#023a02',
+  visorMain: '#00ff00'
+};
+
+// Predefined visor colors (automatic mapping)
+const visorColors = {
+  visorOutline: '#173A4D',
+  visorShadow: '#6693B3',
+  visorMain: '#A8D7E4'
 };
 
 function hexToRgb(hex) {
@@ -79,13 +93,14 @@ document.getElementById('processBtn').addEventListener('click', async () => {
   const gif = new window.GifuctJS.Gif(new Uint8Array(arrayBuffer));
   const frames = gif.decompressFrames(true);
 
+  // Build color map using your chosen colors + automatic visor mapping
   const colorMap = {
-    main: {source: hexToRgb("#ff1010"), target: hexToRgb(document.getElementById('mainColor').value), tolerance: tolerances.main},
-    shadow: {source: hexToRgb("#0000ff"), target: hexToRgb(document.getElementById('shadowColor').value), tolerance: tolerances.shadow},
-    outline: {source: hexToRgb("#010123"), target: hexToRgb(document.getElementById('outlineColor').value), tolerance: tolerances.outline},
-    visorOutline: {source: hexToRgb("#023a02"), target: hexToRgb(document.getElementById('visorOutlineColor').value), tolerance: tolerances.visorOutline},
-    visorShadow: {source: hexToRgb("#023a02"), target: hexToRgb(document.getElementById('visorShadowColor').value), tolerance: tolerances.visorShadow},
-    visorMain: {source: hexToRgb("#00ff00"), target: hexToRgb(document.getElementById('visorMainColor').value), tolerance: tolerances.visorMain}
+    outline: {source: hexToRgb(sourceColors.outline), target: hexToRgb(document.getElementById('outlineColor').value), tolerance: tolerances.outline},
+    main: {source: hexToRgb(sourceColors.main), target: hexToRgb(document.getElementById('mainColor').value), tolerance: tolerances.main},
+    shadow: {source: hexToRgb(sourceColors.shadow), target: hexToRgb(document.getElementById('shadowColor').value), tolerance: tolerances.shadow},
+    visorOutline: {source: hexToRgb(sourceColors.visorOutline), target: hexToRgb(visorColors.visorOutline), tolerance: tolerances.visorOutline},
+    visorShadow: {source: hexToRgb(sourceColors.visorShadow), target: hexToRgb(visorColors.visorShadow), tolerance: tolerances.visorShadow},
+    visorMain: {source: hexToRgb(sourceColors.visorMain), target: hexToRgb(visorColors.visorMain), tolerance: tolerances.visorMain}
   };
 
   const canvas = document.getElementById('canvas');
