@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GIF Color Replacer</title>
 <style>
-  body { font-family: sans-serif; padding: 20px; }
-  input[type=color] { width: 80px; }
-  button { margin-top: 10px; padding: 5px 10px; cursor:pointer; }
+  body {font-family:sans-serif;padding:20px;}
+  input[type=color]{width:80px;}
+  button{margin-top:10px;padding:6px 12px;cursor:pointer;}
 </style>
 </head>
 <body>
 <h1>GIF Color Replacer</h1>
 
-<label>Upload GIF: <input type="file" id="gifInput" accept="image/gif"></label><br><br>
+<label>Upload GIF:
+  <input type="file" id="gifInput" accept="image/gif">
+</label><br><br>
 
 <h3>Pick Template Colors:</h3>
-<div>
-  Outline: <input type="color" id="outlineColor" value="#020415"><br>
-  Main: <input type="color" id="mainColor" value="#1D3CE9"><br>
-  Shadow: <input type="color" id="shadowColor" value="#09158E"><br>
-</div>
+Outline: <input type="color" id="outlineColor" value="#020415"><br>
+Main: <input type="color" id="mainColor" value="#1D3CE9"><br>
+Shadow: <input type="color" id="shadowColor" value="#09158E"><br>
 
 <button id="processBtn">Process GIF</button>
 
@@ -28,103 +28,94 @@
 <canvas id="canvas" style="display:none;"></canvas>
 <img id="resultGif" alt="Processed GIF">
 
-<!-- Dependencies -->
+<!-- Libraries -->
 <script src="https://cdn.jsdelivr.net/npm/gif.js/dist/gif.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gifuct-js@2.1.0/dist/gifuct.min.js"></script>
+<script src="https://unpkg.com/gifuct-js@2.1.0/dist/gifuct.min.js"></script>
 
 <script>
 const tolerances = {
-  main: 100,
-  shadow: 50,
-  outline: 10,
-  visorOutline: 10,
-  visorShadow: 75,
-  visorMain: 100
+  main:100, shadow:50, outline:10,
+  visorOutline:10, visorShadow:75, visorMain:100
 };
-
-// Template colors in original GIF
 const sourceColors = {
-  main: '#ff1010',
-  shadow: '#0000ff',
-  outline: '#010123',
-  visorOutline: '#023a02',
-  visorShadow: '#023a02',
-  visorMain: '#00ff00'
+  main:'#ff1010', shadow:'#0000ff', outline:'#010123',
+  visorOutline:'#023a02', visorShadow:'#023a02', visorMain:'#00ff00'
 };
-
-// Predefined visor colors (automatic mapping)
 const visorColors = {
-  visorOutline: '#173A4D',
-  visorShadow: '#6693B3',
-  visorMain: '#A8D7E4'
+  visorOutline:'#173A4D', visorShadow:'#6693B3', visorMain:'#A8D7E4'
 };
 
-function hexToRgb(hex) {
-  const bigint = parseInt(hex.replace("#",""), 16);
-  return {r: (bigint >> 16) & 255, g: (bigint >> 8) & 255, b: bigint & 255};
-}
-
-function colorDistance(c1, c2) {
-  return Math.sqrt(
-    (c1.r - c2.r)**2 +
-    (c1.g - c2.g)**2 +
-    (c1.b - c2.b)**2
-  );
-}
-
-function replaceColors(imageData, colorMap) {
-  const data = imageData.data;
-  for (let i=0; i<data.length; i+=4) {
-    const pixel = {r:data[i], g:data[i+1], b:data[i+2]};
-    for (let key in colorMap) {
-      const {source, target, tolerance} = colorMap[key];
-      if (colorDistance(pixel, source) <= tolerance) {
-        data[i] = target.r;
-        data[i+1] = target.g;
-        data[i+2] = target.b;
+function hexToRgb(hex){const n=parseInt(hex.slice(1),16);
+  return {r:(n>>16)&255,g:(n>>8)&255,b:n&255};}
+function colorDistance(c1,c2){
+  return Math.hypot(c1.r-c2.r,c1.g-c2.g,c1.b-c2.b);}
+function replaceColors(imgData,map){
+  const d=imgData.data;
+  for(let i=0;i<d.length;i+=4){
+    const p={r:d[i],g:d[i+1],b:d[i+2]};
+    for(const k in map){
+      const {source,target,tolerance}=map[k];
+      if(colorDistance(p,source)<=tolerance){
+        d[i]=target.r;d[i+1]=target.g;d[i+2]=target.b;
       }
     }
   }
-  return imageData;
+  return imgData;
 }
 
-document.getElementById('processBtn').addEventListener('click', async () => {
-  const file = document.getElementById('gifInput').files[0];
-  if (!file) return alert("Please upload a GIF first!");
+document.getElementById('processBtn').addEventListener('click', async()=>{
+  const file=document.getElementById('gifInput').files[0];
+  if(!file){alert("Upload a GIF first!");return;}
 
-  const arrayBuffer = await file.arrayBuffer();
-  const gif = new window.GifuctJS.Gif(new Uint8Array(arrayBuffer));
-  const frames = gif.decompressFrames(true);
-
-  const colorMap = {
-    outline: {source: hexToRgb(sourceColors.outline), target: hexToRgb(document.getElementById('outlineColor').value), tolerance: tolerances.outline},
-    main: {source: hexToRgb(sourceColors.main), target: hexToRgb(document.getElementById('mainColor').value), tolerance: tolerances.main},
-    shadow: {source: hexToRgb(sourceColors.shadow), target: hexToRgb(document.getElementById('shadowColor').value), tolerance: tolerances.shadow},
-    visorOutline: {source: hexToRgb(sourceColors.visorOutline), target: hexToRgb(visorColors.visorOutline), tolerance: tolerances.visorOutline},
-    visorShadow: {source: hexToRgb(sourceColors.visorShadow), target: hexToRgb(visorColors.visorShadow), tolerance: tolerances.visorShadow},
-    visorMain: {source: hexToRgb(sourceColors.visorMain), target: hexToRgb(visorColors.visorMain), tolerance: tolerances.visorMain}
-  };
-
-  const canvas = document.getElementById('canvas');
-  const ctx = canvas.getContext('2d');
-  canvas.width = frames[0].dims.width;
-  canvas.height = frames[0].dims.height;
-
-  const gifEncoder = new GIF({workers:2, quality:10, width: canvas.width, height: canvas.height});
-
-  for (let frame of frames) {
-    const imageData = ctx.createImageData(frame.dims.width, frame.dims.height);
-    imageData.data.set(frame.patch);
-    const newImageData = replaceColors(imageData, colorMap);
-    ctx.putImageData(newImageData, 0, 0);
-    gifEncoder.addFrame(ctx, {copy:true, delay: frame.delay});
+  // safety check to ensure gifuct-js loaded
+  if(!window.GifuctJS||!window.GifuctJS.Gif){
+    alert("gifuct-js failed to load. Check network or CDN.");return;
   }
 
-  gifEncoder.on('finished', blob => {
-    document.getElementById('resultGif').src = URL.createObjectURL(blob);
-  });
+  const arrBuf=await file.arrayBuffer();
+  const gif=new window.GifuctJS.Gif(new Uint8Array(arrBuf));
+  const frames=gif.decompressFrames(true);
 
-  gifEncoder.render();
+  const colorMap={
+    outline:{source:hexToRgb(sourceColors.outline),
+      target:hexToRgb(document.getElementById('outlineColor').value),
+      tolerance:tolerances.outline},
+    main:{source:hexToRgb(sourceColors.main),
+      target:hexToRgb(document.getElementById('mainColor').value),
+      tolerance:tolerances.main},
+    shadow:{source:hexToRgb(sourceColors.shadow),
+      target:hexToRgb(document.getElementById('shadowColor').value),
+      tolerance:tolerances.shadow},
+    visorOutline:{source:hexToRgb(sourceColors.visorOutline),
+      target:hexToRgb(visorColors.visorOutline),
+      tolerance:tolerances.visorOutline},
+    visorShadow:{source:hexToRgb(sourceColors.visorShadow),
+      target:hexToRgb(visorColors.visorShadow),
+      tolerance:tolerances.visorShadow},
+    visorMain:{source:hexToRgb(sourceColors.visorMain),
+      target:hexToRgb(visorColors.visorMain),
+      tolerance:tolerances.visorMain}
+  };
+
+  const canvas=document.getElementById('canvas');
+  const ctx=canvas.getContext('2d');
+  canvas.width=frames[0].dims.width;
+  canvas.height=frames[0].dims.height;
+
+  const encoder=new GIF({workers:2,quality:10,width:canvas.width,height:canvas.height});
+
+  for(const f of frames){
+    const img=ctx.createImageData(f.dims.width,f.dims.height);
+    img.data.set(f.patch);
+    const out=replaceColors(img,colorMap);
+    ctx.putImageData(out,0,0);
+    encoder.addFrame(ctx,{copy:true,delay:f.delay});
+  }
+
+  encoder.on('finished',blob=>{
+    document.getElementById('resultGif').src=URL.createObjectURL(blob);
+  });
+  encoder.render();
 });
 </script>
 </body>
