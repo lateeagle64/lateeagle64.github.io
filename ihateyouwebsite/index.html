@@ -7,29 +7,34 @@
 <style>
   body { font-family: sans-serif; padding: 20px; }
   input[type=color] { width: 80px; }
+  button { margin-top: 10px; padding: 5px 10px; }
 </style>
 </head>
 <body>
 <h1>GIF Color Replacer</h1>
+
 <label>Upload GIF: <input type="file" id="gifInput" accept="image/gif"></label><br><br>
 
 <h3>Pick Template Colors:</h3>
 <div>
-  Outline: <input type="color" id="outlineColor" value="#010123"><br>
-  Main: <input type="color" id="mainColor" value="#ff1010"><br>
-  Shadow: <input type="color" id="shadowColor" value="#0000ff"><br>
+  Outline: <input type="color" id="outlineColor" value="#020415"><br>
+  Main: <input type="color" id="mainColor" value="#1D3CE9"><br>
+  Shadow: <input type="color" id="shadowColor" value="#09158E"><br>
 </div>
 
-<br>
 <button id="processBtn">Process GIF</button>
 
 <h3>Result:</h3>
 <canvas id="canvas" style="display:none;"></canvas>
-<img id="resultGif">
+<img id="resultGif" alt="Processed GIF">
 
+<!-- GIF encoder -->
 <script src="https://cdn.jsdelivr.net/npm/gif.js/dist/gif.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gifuct-js/dist/gifuct.min.js"></script>
-<script>
+
+<!-- ES module version of gifuct-js -->
+<script type="module">
+import { Gif } from "https://cdn.jsdelivr.net/npm/gifuct-js/dist/gifuct.es.js";
+
 const tolerances = {
   main: 100,
   shadow: 50,
@@ -39,7 +44,7 @@ const tolerances = {
   visorMain: 100
 };
 
-// Original template colors
+// Template colors in original GIF
 const sourceColors = {
   main: '#ff1010',
   shadow: '#0000ff',
@@ -87,13 +92,12 @@ function replaceColors(imageData, colorMap) {
 
 document.getElementById('processBtn').addEventListener('click', async () => {
   const file = document.getElementById('gifInput').files[0];
-  if (!file) return alert("Upload a GIF first!");
+  if (!file) return alert("Please upload a GIF first!");
 
   const arrayBuffer = await file.arrayBuffer();
-  const gif = new window.GifuctJS.Gif(new Uint8Array(arrayBuffer));
+  const gif = new Gif(new Uint8Array(arrayBuffer));
   const frames = gif.decompressFrames(true);
 
-  // Build color map using your chosen colors + automatic visor mapping
   const colorMap = {
     outline: {source: hexToRgb(sourceColors.outline), target: hexToRgb(document.getElementById('outlineColor').value), tolerance: tolerances.outline},
     main: {source: hexToRgb(sourceColors.main), target: hexToRgb(document.getElementById('mainColor').value), tolerance: tolerances.main},
