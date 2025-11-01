@@ -7,7 +7,7 @@
 <style>
   body { font-family: sans-serif; padding: 20px; }
   input[type=color] { width: 80px; }
-  button { margin-top: 10px; padding: 5px 10px; }
+  button { margin-top: 10px; padding: 5px 10px; cursor:pointer; }
 </style>
 </head>
 <body>
@@ -28,13 +28,11 @@
 <canvas id="canvas" style="display:none;"></canvas>
 <img id="resultGif" alt="Processed GIF">
 
-<!-- GIF encoder -->
+<!-- Dependencies -->
 <script src="https://cdn.jsdelivr.net/npm/gif.js/dist/gif.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gifuct-js@2.1.0/dist/gifuct.min.js"></script>
 
-<!-- ES module version of gifuct-js -->
-<script type="module">
-import { Gif } from "https://cdn.jsdelivr.net/npm/gifuct-js/dist/gifuct.es.js";
-
+<script>
 const tolerances = {
   main: 100,
   shadow: 50,
@@ -95,7 +93,7 @@ document.getElementById('processBtn').addEventListener('click', async () => {
   if (!file) return alert("Please upload a GIF first!");
 
   const arrayBuffer = await file.arrayBuffer();
-  const gif = new Gif(new Uint8Array(arrayBuffer));
+  const gif = new window.GifuctJS.Gif(new Uint8Array(arrayBuffer));
   const frames = gif.decompressFrames(true);
 
   const colorMap = {
