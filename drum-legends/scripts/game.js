@@ -1,3 +1,9 @@
+// I'm gonna use this script as my to-do list since im too lazy to make another
+// TO DO: make the art for this trash
+// find a way to animate the art for this trash
+// sync it up
+// make a custom song maker system that saves to json or something idk
+
 let mainBinds = {
   "1": "D",
   "2": "F",
